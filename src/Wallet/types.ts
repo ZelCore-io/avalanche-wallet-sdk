@@ -2,7 +2,6 @@ import { KeyPair as AVMKeyPair } from 'avalanche/dist/apis/avm';
 
 import { BN } from 'avalanche';
 
-import { MnemonicWallet } from '@/Wallet/MnemonicWallet';
 import { SingletonWallet } from '@/Wallet/SingletonWallet';
 
 import { iAssetDescriptionClean } from '@/Asset/types';
@@ -19,7 +18,7 @@ export type ExportChainsC = 'X' | 'P';
 export type HdChainType = 'X' | 'P';
 
 export type WalletNameType = 'mnemonic' | 'singleton' | 'xpub';
-export type WalletType = MnemonicWallet | SingletonWallet;
+export type WalletType = SingletonWallet;
 
 export interface WalletBalanceX {
     [assetId: string]: AssetBalanceX;

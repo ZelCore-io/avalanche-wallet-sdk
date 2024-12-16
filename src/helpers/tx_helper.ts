@@ -20,8 +20,8 @@ import { EVMConstants } from 'avalanche/dist/apis/evm';
 import { FeeMarketEIP1559Transaction, Transaction } from '@ethereumjs/tx';
 import EthereumjsCommon from '@ethereumjs/common';
 
-import ERC20Abi from '@openzeppelin/contracts/build/contracts/ERC20.json';
-import ERC721Abi from '@openzeppelin/contracts/build/contracts/ERC721.json';
+import ERC20Abi from '../Asset/ERC20.json';
+import ERC721Abi from '../Asset/ERC721/ERC721.json';
 import { bintools } from '@/common';
 import { ExportChainsC, ExportChainsP, ExportChainsX } from '@/Wallet/types';
 import { chainIdFromAlias } from '@/Network/helpers/idFromAlias';
