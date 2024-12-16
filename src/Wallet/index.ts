@@ -1,4 +1,3 @@
-export * from './Ledger';
 export * from './types';
 export * from './MnemonicWallet';
 export * from './SingletonWallet';
