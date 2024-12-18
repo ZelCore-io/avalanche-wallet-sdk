@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAccountPathEVM = exports.getAccountPathAvalanche = void 0;
-const constants_1 = require("@/Wallet/constants");
+const constants_1 = require("../../Wallet/constants");
 /**
  * Given an account number, returns the Avalanche account derivation path as a string
  * @param accountIndex

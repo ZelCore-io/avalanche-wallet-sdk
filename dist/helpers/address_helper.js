@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAddressChain = exports.getAddressHRP = exports.validateAddressEVM = exports.validateAddressP = exports.validateAddressC = exports.validateAddressX = exports.validateAddress = void 0;
 const tslib_1 = require("tslib");
 const web3_1 = tslib_1.__importDefault(require("web3"));
-const common_1 = require("@/common");
+const common_1 = require("../common");
 const validateAddress = (address) => {
     return (validateAddressX(address) ||
         validateAddressP(address) ||

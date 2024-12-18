@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Erc20Token = void 0;
 const tslib_1 = require("tslib");
-const network_1 = require("@/Network/network");
+const network_1 = require("../Network/network");
 const ERC20_json_1 = tslib_1.__importDefault(require("./ERC20.json"));
-const errors_1 = require("@/errors");
+const errors_1 = require("../errors");
 const avalanche_1 = require("avalanche");
 const xss_1 = tslib_1.__importDefault(require("xss"));
 class Erc20Token {

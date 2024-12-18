@@ -1,6 +1,6 @@
 import Sockette from 'sockette';
 import { PubSub } from 'avalanche';
-import { WalletType } from '../Wallet/types';
+import { WalletType } from '../../Wallet/types';
 
 const FILTER_ADDRESS_SIZE = 1000;
 

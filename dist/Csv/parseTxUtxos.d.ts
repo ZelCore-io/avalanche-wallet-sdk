@@ -1,5 +1,5 @@
-import { OrteliusAvalancheTx, OrteliusTransactionType } from '@/Explorer';
-import { ChainIdType } from '@/common';
+import { OrteliusAvalancheTx, OrteliusTransactionType } from '../Explorer';
+import { ChainIdType } from '../common';
 interface ParsedTxUtxos {
     txID: string;
     timeStamp: Date;

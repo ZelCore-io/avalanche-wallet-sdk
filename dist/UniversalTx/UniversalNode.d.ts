@@ -1,6 +1,6 @@
 /// <reference types="bn.js" />
 import { BN } from 'avalanche';
-import { ChainIdType } from '@/common';
+import { ChainIdType } from '../common';
 import { UniversalTx, UniversalTxActionExport, UniversalTxActionImport, UniversalTxExport, UniversalTxImport } from './types';
 export declare abstract class UniversalNodeAbstract {
     parents: UniversalNodeAbstract[];

@@ -1,9 +1,9 @@
-import { WalletProvider } from '@/Wallet/Wallet';
-import { UnsafeWallet, WalletNameType } from '@/Wallet/types';
+import { WalletProvider } from '../Wallet/Wallet';
+import { UnsafeWallet, WalletNameType } from '../Wallet/types';
 import { UnsignedTx as AVMUnsignedTx, Tx as AVMTx } from 'avalanche/dist/apis/avm';
 import { UnsignedTx as PlatformUnsignedTx, Tx as PlatformTx } from 'avalanche/dist/apis/platformvm';
 import { Buffer as BufferAvalanche } from 'avalanche';
-import { EvmWallet } from '@/Wallet/EVM/EvmWallet';
+import { EvmWallet } from '../Wallet/EVM/EvmWallet';
 import { UnsignedTx, Tx } from 'avalanche/dist/apis/evm';
 import { TypedTransaction } from '@ethereumjs/tx';
 import { TypedDataV1, TypedMessage } from '@metamask/eth-sig-util';

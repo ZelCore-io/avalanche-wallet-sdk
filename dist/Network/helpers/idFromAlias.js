@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.chainIdFromAlias = void 0;
-const network_1 = require("@/Network/network");
+const network_1 = require("../../Network/network");
 /**
  * Given a chain alias, returns the chain id.
  * @param alias `X`, `P` or `C`

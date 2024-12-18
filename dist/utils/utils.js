@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.parseNftPayload = exports.digestMessage = exports.isValidAddress = void 0;
 const tslib_1 = require("tslib");
 const avalanche_1 = require("avalanche");
-const address_helper_1 = require("@/helpers/address_helper");
+const address_helper_1 = require("../helpers/address_helper");
 const create_hash_1 = tslib_1.__importDefault(require("create-hash"));
 const utils_1 = require("avalanche/dist/utils");
 /**

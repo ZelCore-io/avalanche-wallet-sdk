@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const constants_1 = require("@/Network/constants");
-const setNetwork_1 = require("@/Network/setNetwork");
+const constants_1 = require("../Network/constants");
+const setNetwork_1 = require("../Network/setNetwork");
 tslib_1.__exportStar(require("./helpers"), exports);
 tslib_1.__exportStar(require("./providers"), exports);
 tslib_1.__exportStar(require("./constants"), exports);

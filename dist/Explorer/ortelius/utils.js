@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getStakeAmount = exports.findDestinationChain = exports.findSourceChain = exports.filterDuplicateOrtelius = void 0;
-const utxoUtils_1 = require("@/Explorer/ortelius/utxoUtils");
+const utxoUtils_1 = require("../../Explorer/ortelius/utxoUtils");
 /**
  * Given an array of transactions from the explorer, filter out duplicate transactions
  * @param txs

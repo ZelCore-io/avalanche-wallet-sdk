@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const UniversalNode_1 = require("@/UniversalTx/UniversalNode");
+const UniversalNode_1 = require("../UniversalTx/UniversalNode");
 class UniversalNodeP extends UniversalNode_1.UniversalNodeAbstract {
     constructor(balance, feeExport, feeImport) {
         super(balance, 'P', feeExport, feeImport);

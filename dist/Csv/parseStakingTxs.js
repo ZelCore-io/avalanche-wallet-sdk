@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parseStakingTxs = exports.createCsvStaking = void 0;
 const tslib_1 = require("tslib");
-const History_1 = require("@/History");
-const utils_1 = require("@/utils");
+const History_1 = require("../History");
+const utils_1 = require("../utils");
 const moment_1 = tslib_1.__importDefault(require("moment"));
-const createCsvContent_1 = require("@/Csv/createCsvContent");
-const constants_1 = require("@/Csv/constants");
+const createCsvContent_1 = require("../Csv/createCsvContent");
+const constants_1 = require("../Csv/constants");
 const big_js_1 = tslib_1.__importDefault(require("big.js"));
 /**
  * Given an array of history transactions, filter the staking txs and returns the body of a csv file.

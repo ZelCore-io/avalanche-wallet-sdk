@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTransactionSummary = void 0;
-const history_helpers_1 = require("@/History/history_helpers");
-const network_1 = require("@/Network/network");
-const utils_1 = require("@/utils");
+const history_helpers_1 = require("../History/history_helpers");
+const network_1 = require("../Network/network");
+const utils_1 = require("../utils");
 const avalanche_1 = require("avalanche");
-const base_tx_parser_1 = require("@/History/base_tx_parser");
-const aliasFromNetworkID_1 = require("@/Network/helpers/aliasFromNetworkID");
-const importExportParser_1 = require("@/History/importExportParser");
-const Explorer_1 = require("@/Explorer");
-const utxoUtils_1 = require("@/Explorer/ortelius/utxoUtils");
+const base_tx_parser_1 = require("../History/base_tx_parser");
+const aliasFromNetworkID_1 = require("../Network/helpers/aliasFromNetworkID");
+const importExportParser_1 = require("../History/importExportParser");
+const Explorer_1 = require("../Explorer");
+const utxoUtils_1 = require("../Explorer/ortelius/utxoUtils");
 async function getTransactionSummary(tx, walletAddrs, evmAddress) {
     let cleanAddressesXP = walletAddrs.map((addr) => addr.split('-')[1]);
     switch (tx.type) {

@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getNFTBalanceFromUTXOs = exports.parseMemo = void 0;
 const avm_1 = require("avalanche/dist/apis/avm");
-const utils_1 = require("@/utils");
-const utxoUtils_1 = require("@/Explorer/ortelius/utxoUtils");
+const utils_1 = require("../utils");
+const utxoUtils_1 = require("../Explorer/ortelius/utxoUtils");
 /**
  * Parse the raw memo field to readable text.
  * @param raw

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTxFeeP = exports.getTxFeeX = void 0;
-const network_1 = require("@/Network/network");
+const network_1 = require("../Network/network");
 /**
  * Returns the transaction fee for X chain.
  */

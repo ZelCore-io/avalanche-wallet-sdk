@@ -2,13 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EvmWalletReadonly = void 0;
 const avalanche_1 = require("avalanche");
-const network_1 = require("@/Network/network");
+const network_1 = require("../../Network/network");
 const ethers_1 = require("ethers");
 const keychain_1 = require("avalanche/dist/apis/evm/keychain");
-const common_1 = require("@/common");
+const common_1 = require("../../common");
 const utils_1 = require("ethers/lib/utils");
 const bitcoinjs_lib_1 = require("bitcoinjs-lib");
-const tx_helper_1 = require("@/helpers/tx_helper");
+const tx_helper_1 = require("../../helpers/tx_helper");
 class EvmWalletReadonly {
     balance = new avalanche_1.BN(0);
     address;

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAssetDescription = exports.getAssetDescriptionSync = void 0;
 const tslib_1 = require("tslib");
-const network_1 = require("@/Network/network");
+const network_1 = require("../Network/network");
 const xss_1 = tslib_1.__importDefault(require("xss"));
 let assetCache = {};
 function getAssetDescriptionSync(assetId) {

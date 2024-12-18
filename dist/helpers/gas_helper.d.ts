@@ -1,6 +1,6 @@
 /// <reference types="bn.js" />
 import { BN } from 'avalanche';
-import { ExportChainsC } from '@/Wallet/types';
+import { ExportChainsC } from '../Wallet/types';
 /**
  * Returns the current gas price in WEI from the network
  */

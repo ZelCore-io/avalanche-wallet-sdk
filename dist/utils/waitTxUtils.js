@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.waitTxC = exports.waitTxEvm = exports.waitTxP = exports.waitTxX = void 0;
-const network_1 = require("@/Network/network");
+const network_1 = require("../Network/network");
 /**
  * Waits until the given tx id is accepted on X chain
  * @param txId Tx ID to wait for

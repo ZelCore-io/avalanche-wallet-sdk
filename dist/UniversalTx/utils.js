@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getStepsForBalanceX = exports.getStepsForBalanceC = exports.getStepsForBalanceP = exports.canHaveBalanceOnC = exports.canHaveBalanceOnP = exports.canHaveBalanceOnX = exports.createGraphForX = exports.createGraphForC = exports.createGraphForP = void 0;
 const tslib_1 = require("tslib");
-const UniversalNodeX_1 = tslib_1.__importDefault(require("@/UniversalTx/UniversalNodeX"));
-const UniversalNodeP_1 = tslib_1.__importDefault(require("@/UniversalTx/UniversalNodeP"));
-const UniversalNodeC_1 = tslib_1.__importDefault(require("@/UniversalTx/UniversalNodeC"));
+const UniversalNodeX_1 = tslib_1.__importDefault(require("../UniversalTx/UniversalNodeX"));
+const UniversalNodeP_1 = tslib_1.__importDefault(require("../UniversalTx/UniversalNodeP"));
+const UniversalNodeC_1 = tslib_1.__importDefault(require("../UniversalTx/UniversalNodeC"));
 function createGraphForP(balX, balP, balC, atomicFeeXP, atomicFeeC) {
     let xNode = new UniversalNodeX_1.default(balX, atomicFeeXP, atomicFeeXP);
     let pNode = new UniversalNodeP_1.default(balP, atomicFeeXP, atomicFeeXP);

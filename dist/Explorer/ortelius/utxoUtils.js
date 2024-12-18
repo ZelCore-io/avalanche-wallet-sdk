@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getOutputsAssetIDs = exports.getOutputsAssetOwners = exports.getOutputsOfType = exports.getOutputsOfChain = exports.getRewardOuts = exports.getOutputTotals = exports.getNotOwnedOutputs = exports.getAssetOutputs = exports.getAddresses = exports.getOwnedOutputs = exports.getEvmAssetBalanceFromUTXOs = exports.getAssetBalanceFromUTXOs = exports.isOutputOwnerC = exports.isOutputOwner = exports.isArraysOverlap = exports.filterDuplicateStrings = void 0;
 const avalanche_1 = require("avalanche");
-const utils_1 = require("@/utils");
+const utils_1 = require("../../utils");
 function filterDuplicateStrings(vals) {
     return vals.filter((val, i) => vals.indexOf(val) === i);
 }

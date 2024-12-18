@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getABIForContract = exports.getNormalHistory = exports.getErc20History = void 0;
-const constants_1 = require("@/Explorer/snowtrace/constants");
-const Network_1 = require("@/Network");
+const constants_1 = require("../../Explorer/snowtrace/constants");
+const Network_1 = require("../../Network");
 const utils_1 = require("./utils");
 async function fetchSnowtraceAPI(query, isMainnet = true) {
     const baseUrl = isMainnet ? constants_1.SNOWTRACE_MAINNET : constants_1.SNOWTRACE_TESTNET;
@@ -55,6 +55,7 @@ async function getABIForContract(address, networkConfig) {
     if (!isMainnet && !isFuji) {
         throw new Error('Snow trace is only available for Avalanche Mainnet and Testnet');
     }
+    // eslint-disable-next-line no-undef
     const params = new window.URLSearchParams({ module: 'contract', action: 'getabi', address });
     return await fetchSnowtraceAPI(`api?${params.toString()}`, isMainnet);
 }

@@ -1,1 +1,1 @@
-{"version":3,"file":"aliasFromNetworkID.d.ts","sourceRoot":"","sources":["../../../src/Network/helpers/aliasFromNetworkID.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,WAAW,EAAE,MAAM,UAAU,CAAC;AAGvC;;;GAGG;AACH,wBAAgB,cAAc,CAAC,EAAE,EAAE,MAAM,GAAG,WAAW,CAStD"}
+{"version":3,"file":"aliasFromNetworkID.d.ts","sourceRoot":"","sources":["../../../src/Network/helpers/aliasFromNetworkID.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,WAAW,EAAE,MAAM,cAAc,CAAC;AAG3C;;;GAGG;AACH,wBAAgB,cAAc,CAAC,EAAE,EAAE,MAAM,GAAG,WAAW,CAStD"}

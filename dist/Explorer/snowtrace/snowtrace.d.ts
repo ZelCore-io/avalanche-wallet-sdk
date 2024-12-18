@@ -1,5 +1,5 @@
-import { NetworkConfig } from '@/Network';
-import { SnowtraceErc20Tx, SnowtraceNormalTx, SnowtraceResponse } from '@/Explorer/snowtrace/types';
+import { NetworkConfig } from '../../Network';
+import { SnowtraceErc20Tx, SnowtraceNormalTx, SnowtraceResponse } from '../../Explorer/snowtrace/types';
 export declare function getErc20History(address: string, networkConfig: NetworkConfig, page?: number, offset?: number, contractAddress?: string): Promise<SnowtraceErc20Tx[]>;
 export declare function getNormalHistory(address: string, networkConfig: NetworkConfig, page?: number, offset?: number): Promise<SnowtraceNormalTx[]>;
 /**

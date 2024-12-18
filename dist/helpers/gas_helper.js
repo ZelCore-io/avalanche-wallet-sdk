@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.estimateExportGasFee = exports.estimateExportGasFeeFromMockTx = exports.estimateImportGasFeeFromMockTx = exports.calculateMaxFee = exports.getMaxPriorityFee = exports.getBaseFeeRecommended = exports.getBaseFee = exports.adjustValue = exports.getAdjustedGasPrice = exports.getGasPrice = void 0;
-const network_1 = require("@/Network/network");
+const network_1 = require("../Network/network");
 const avalanche_1 = require("avalanche");
 const evm_1 = require("avalanche/dist/apis/evm");
-const common_1 = require("@/common");
-const Network_1 = require("@/Network");
+const common_1 = require("../common");
+const Network_1 = require("../Network");
 const utils_1 = require("avalanche/dist/utils");
-const tx_helper_1 = require("@/helpers/tx_helper");
+const tx_helper_1 = require("../helpers/tx_helper");
 const MAX_GAS = new avalanche_1.BN(1000_000_000_000);
 /**
  * Returns the current gas price in WEI from the network

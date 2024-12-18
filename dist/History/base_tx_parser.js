@@ -2,13 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getBaseTxSummary = void 0;
 const tslib_1 = require("tslib");
-const Assets = tslib_1.__importStar(require("@/Asset/Assets"));
-const utils_1 = require("@/utils");
+const Assets = tslib_1.__importStar(require("../Asset/Assets"));
+const utils_1 = require("../utils");
 const avm_1 = require("avalanche/dist/apis/avm");
 const avalanche_1 = require("avalanche");
-const history_helpers_1 = require("@/History/history_helpers");
-const utxoUtils_1 = require("@/Explorer/ortelius/utxoUtils");
-const utils_2 = require("@/Network/utils");
+const history_helpers_1 = require("../History/history_helpers");
+const utxoUtils_1 = require("../Explorer/ortelius/utxoUtils");
+const utils_2 = require("../Network/utils");
 async function getBaseTxSummary(tx, ownerAddrs) {
     let ins = tx.inputs?.map((input) => input.output) || [];
     let outs = tx.outputs || [];

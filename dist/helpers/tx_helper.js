@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ParseableEvmTxEnum = exports.ParseablePlatformEnum = exports.ParseableAvmTxEnum = exports.PlatfromTxNameEnum = exports.AvmTxNameEnum = exports.estimateAvaxGas = exports.estimateErc721TransferGas = exports.estimateErc20Gas = exports.buildEvmTransferErc721Tx = exports.buildEvmTransferErc20Tx = exports.buildCustomEvmTx = exports.buildEvmTransferNativeTx = exports.buildEvmTransferEIP1559Tx = exports.buildEvmExportTransaction = exports.buildPlatformExportTransaction = exports.buildAvmExportTransaction = exports.buildMintNftTx = exports.buildCreateNftFamilyTx = void 0;
 const tslib_1 = require("tslib");
-const network_1 = require("@/Network/network");
+const network_1 = require("../Network/network");
 const avm_1 = require("avalanche/dist/apis/avm");
 const common_1 = require("avalanche/dist/common");
 const platformvm_1 = require("avalanche/dist/apis/platformvm");
@@ -11,9 +11,9 @@ const tx_1 = require("@ethereumjs/tx");
 const common_2 = require("@ethereumjs/common");
 const ERC20_json_1 = tslib_1.__importDefault(require("../Asset/ERC20.json"));
 const ERC721_json_1 = tslib_1.__importDefault(require("../Asset/ERC721/ERC721.json"));
-const common_3 = require("@/common");
-const idFromAlias_1 = require("@/Network/helpers/idFromAlias");
-const Asset_1 = require("@/Asset");
+const common_3 = require("../common");
+const idFromAlias_1 = require("../Network/helpers/idFromAlias");
+const Asset_1 = require("../Asset");
 async function buildCreateNftFamilyTx(name, symbol, groupNum, fromAddrs, minterAddr, changeAddr, utxoSet) {
     let fromAddresses = fromAddrs;
     let changeAddress = changeAddr;

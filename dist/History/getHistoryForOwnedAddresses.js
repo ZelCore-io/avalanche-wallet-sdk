@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getHistoryForOwnedAddressesRaw = exports.getHistoryForOwnedAddresses = exports.getHistoryEVM = exports.getHistoryC = exports.getHistoryP = exports.getHistoryX = void 0;
-const Explorer_1 = require("@/Explorer");
-const parsers_1 = require("@/History/parsers");
-const evmParser_1 = require("@/History/evmParser");
-const Network_1 = require("@/Network");
+const Explorer_1 = require("../Explorer");
+const parsers_1 = require("../History/parsers");
+const evmParser_1 = require("../History/evmParser");
+const Network_1 = require("../Network");
 async function getHistoryX(addrs, limit = 0) {
     return await (0, Explorer_1.getAddressHistory)(addrs, limit, Network_1.xChain.getBlockchainID());
 }

@@ -1,7 +1,7 @@
 import { UTXOSet as AVMUTXOSet } from 'avalanche/dist/apis/avm/utxos';
 import { UTXOSet as PlatformUTXOSet } from 'avalanche/dist/apis/platformvm/utxos';
 import { UTXOSet as EVMUTXOSet } from 'avalanche/dist/apis/evm/utxos';
-import { ExportChainsC, ExportChainsP, ExportChainsX } from '@/Wallet/types';
+import { ExportChainsC, ExportChainsP, ExportChainsX } from '../Wallet/types';
 import { GetStakeResponse } from 'avalanche/dist/apis/platformvm/interfaces';
 /**
  *

@@ -2,7 +2,7 @@
 /// <reference types="node" />
 /// <reference types="node" />
 import { BN } from 'avalanche';
-import { BTCNetworkType } from '@/Wallet';
+import { BTCNetworkType } from '../../Wallet';
 export declare class EvmWalletReadonly {
     balance: BN;
     address: string;

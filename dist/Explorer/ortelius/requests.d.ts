@@ -1,4 +1,4 @@
-import { OrteliusAvalancheTx, OrteliusEvmTx } from '@/Explorer';
+import { OrteliusAvalancheTx, OrteliusEvmTx } from '../../Explorer';
 /**
  * Returns transactions FROM and TO the address given
  * @param addr The address to get historic transactions for.

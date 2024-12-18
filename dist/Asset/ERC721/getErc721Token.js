@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getErc721TokenEthers = void 0;
 const ERC721_json_1 = require("./ERC721.json");
 const ethers_1 = require("ethers");
-// import { web3 } from '@/Network';
+// import { web3 } from '../Network';
 // import { AbiItem } from 'web3-utils';
 /**
  * Returns an ethers ERC721 Contract

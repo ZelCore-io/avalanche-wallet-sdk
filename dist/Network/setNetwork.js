@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setNetworkAsync = exports.setNetwork = void 0;
-const network_1 = require("@/Network/network");
-const eventEmitter_1 = require("@/Network/eventEmitter");
-const Erc20_1 = require("@/Asset/Erc20");
+const network_1 = require("../Network/network");
+const eventEmitter_1 = require("../Network/eventEmitter");
+const Erc20_1 = require("../Asset/Erc20");
 function setNetwork(conf) {
     (0, network_1.setRpcNetwork)(conf);
     (0, eventEmitter_1.emitNetworkChange)(conf);

@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getActiveNetworkConfig = exports.getAvaxAssetID = exports.isLocalNetwork = exports.isMainnetNetworkId = exports.isMainnetNetwork = exports.isFujiNetworkId = exports.isFujiNetwork = void 0;
-const constants_1 = require("@/Network/constants");
-const network_1 = require("@/Network/network");
+const constants_1 = require("../Network/constants");
+const network_1 = require("../Network/network");
 function isFujiNetwork(activeNetwork) {
     return activeNetwork.networkID === constants_1.TestnetConfig.networkID;
 }

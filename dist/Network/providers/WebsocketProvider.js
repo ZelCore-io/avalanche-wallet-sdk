@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WebsocketProvider = void 0;
-const AVMWebSocketProvider_1 = require("@/Network/providers/AVMWebSocketProvider");
-const EVMWebSocketProvider_1 = require("@/Network/providers/EVMWebSocketProvider");
-const network_helper_1 = require("@/helpers/network_helper");
-const network_1 = require("@/Network/network");
+const AVMWebSocketProvider_1 = require("../../Network/providers/AVMWebSocketProvider");
+const EVMWebSocketProvider_1 = require("../../Network/providers/EVMWebSocketProvider");
+const network_helper_1 = require("../../helpers/network_helper");
+const network_1 = require("../../Network/network");
 class WebsocketProvider {
     avmProvider;
     evmProvider;

@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getExportSummary = exports.getImportSummary = void 0;
-const history_helpers_1 = require("@/History/history_helpers");
-const aliasFromNetworkID_1 = require("@/Network/helpers/aliasFromNetworkID");
-const network_1 = require("@/Network/network");
-const utils_1 = require("@/utils");
-const utxoUtils_1 = require("@/Explorer/ortelius/utxoUtils");
-const Explorer_1 = require("@/Explorer");
+const history_helpers_1 = require("../History/history_helpers");
+const aliasFromNetworkID_1 = require("../Network/helpers/aliasFromNetworkID");
+const network_1 = require("../Network/network");
+const utils_1 = require("../utils");
+const utxoUtils_1 = require("../Explorer/ortelius/utxoUtils");
+const Explorer_1 = require("../Explorer");
 const avalanche_1 = require("avalanche");
 function getImportSummary(tx, addresses, evmAddr) {
     let sourceChain = (0, Explorer_1.findSourceChain)(tx);

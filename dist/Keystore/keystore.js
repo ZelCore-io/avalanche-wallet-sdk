@@ -2,13 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.extractKeysFromDecryptedFile = exports.extractKeysV6 = exports.extractKeysV5 = exports.extractKeysV2 = exports.readKeyFile = exports.readV6 = exports.readV5 = exports.readV4 = exports.readV3 = exports.readV2 = void 0;
 const tslib_1 = require("tslib");
-const network_1 = require("@/Network/network");
+const network_1 = require("../Network/network");
 const Crypto_1 = tslib_1.__importDefault(require("./Crypto"));
-// import { keyToKeypair } from '@/helpers/helper'
+// import { keyToKeypair } from '../helpers/helper'
 const bip39 = tslib_1.__importStar(require("bip39"));
-const common_1 = require("@/common");
+const common_1 = require("../common");
 const avalanche_1 = require("avalanche");
-const constants_1 = require("@/Keystore/constants");
+const constants_1 = require("../Keystore/constants");
 const cryptoHelpers = new Crypto_1.default();
 async function readV2(data, pass) {
     const version = data.version;

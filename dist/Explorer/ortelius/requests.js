@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAddressDetailX = exports.getAddressChains = exports.getAddressHistory = exports.getTxEvm = exports.getTx = exports.getAddressHistoryEVM = void 0;
-const network_1 = require("@/Network/network");
-const errors_1 = require("@/errors");
+const network_1 = require("../../Network/network");
+const errors_1 = require("../../errors");
 /**
  * Returns transactions FROM and TO the address given
  * @param addr The address to get historic transactions for.

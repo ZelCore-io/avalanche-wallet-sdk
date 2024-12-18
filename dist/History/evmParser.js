@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTransactionSummaryEVM = void 0;
-const utils_1 = require("@/utils");
+const utils_1 = require("../utils");
 const avalanche_1 = require("avalanche");
 function getTransactionSummaryEVM(tx, walletAddress) {
     let isSender = tx.fromAddr.toUpperCase() === walletAddress.toUpperCase();

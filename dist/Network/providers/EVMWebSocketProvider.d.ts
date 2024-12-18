@@ -1,5 +1,5 @@
 import { ethers } from 'ethers';
-import { WalletType } from '@/Wallet/types';
+import { WalletType } from '../../Wallet/types';
 export declare class EVMWebSocketProvider {
     provider: ethers.providers.WebSocketProvider;
     wsUrl: string;

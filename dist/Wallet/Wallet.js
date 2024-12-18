@@ -2,27 +2,27 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WalletProvider = void 0;
 const tslib_1 = require("tslib");
-const tx_helper_1 = require("@/helpers/tx_helper");
+const tx_helper_1 = require("../helpers/tx_helper");
 const avalanche_1 = require("avalanche");
-const network_1 = require("@/Network/network");
-const utxo_helper_1 = require("@/helpers/utxo_helper");
+const network_1 = require("../Network/network");
+const utxo_helper_1 = require("../helpers/utxo_helper");
 const avm_1 = require("avalanche/dist/apis/avm");
 const platformvm_1 = require("avalanche/dist/apis/platformvm");
 const utils_1 = require("avalanche/dist/utils");
-const Assets_1 = require("@/Asset/Assets");
-const Erc20_1 = require("@/Asset/Erc20");
-const errors_1 = require("@/errors");
-const utils_2 = require("@/utils");
+const Assets_1 = require("../Asset/Assets");
+const Erc20_1 = require("../Asset/Erc20");
+const errors_1 = require("../errors");
+const utils_2 = require("../utils");
 const events_1 = tslib_1.__importDefault(require("events"));
-const History_1 = require("@/History");
-const common_1 = require("@/common");
-const UniversalTx_1 = require("@/UniversalTx");
-const eventEmitter_1 = require("@/Network/eventEmitter");
-const idFromAlias_1 = require("@/Network/helpers/idFromAlias");
-const gas_helper_1 = require("@/helpers/gas_helper");
-const snowtrace_1 = require("@/Explorer/snowtrace");
-const Explorer_1 = require("@/Explorer");
-const getHistoryForOwnedAddresses_1 = require("@/History/getHistoryForOwnedAddresses");
+const History_1 = require("../History");
+const common_1 = require("../common");
+const UniversalTx_1 = require("../UniversalTx");
+const eventEmitter_1 = require("../Network/eventEmitter");
+const idFromAlias_1 = require("../Network/helpers/idFromAlias");
+const gas_helper_1 = require("../helpers/gas_helper");
+const snowtrace_1 = require("../Explorer/snowtrace");
+const Explorer_1 = require("../Explorer");
+const getHistoryForOwnedAddresses_1 = require("../History/getHistoryForOwnedAddresses");
 class WalletProvider {
     /**
      * The X chain UTXOs of the wallet's current state

@@ -4,7 +4,7 @@ import { UnsignedTx as AVMUnsignedTx, UTXO as AVMUTXO, UTXOSet as AVMUTXOSet, UT
 import { PayloadBase } from 'avalanche/dist/utils';
 import { UTXOSet as PlatformUTXOSet } from 'avalanche/dist/apis/platformvm';
 import { FeeMarketEIP1559Transaction, TypedTransaction } from '@ethereumjs/tx';
-import { ExportChainsC, ExportChainsP, ExportChainsX } from '@/Wallet/types';
+import { ExportChainsC, ExportChainsP, ExportChainsX } from '../Wallet/types';
 export declare function buildCreateNftFamilyTx(name: string, symbol: string, groupNum: number, fromAddrs: string[], minterAddr: string, changeAddr: string, utxoSet: UTXOSet): Promise<AVMUnsignedTx>;
 export declare function buildMintNftTx(mintUtxo: AVMUTXO, payload: PayloadBase, quantity: number, ownerAddress: string, changeAddress: string, fromAddresses: string[], utxoSet: UTXOSet): Promise<AVMUnsignedTx>;
 export declare function buildAvmExportTransaction(destinationChain: ExportChainsX, utxoSet: AVMUTXOSet, fromAddresses: string[], toAddress: string, amount: BN, // export amount + fee

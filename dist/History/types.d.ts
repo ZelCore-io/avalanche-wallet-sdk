@@ -1,8 +1,8 @@
 /// <reference types="bn.js" />
 import { BN } from 'avalanche';
-import { ChainIdType } from '@/common';
-import { iAssetDescriptionClean } from '@/Asset/types';
-import { OrteliusAvalancheTx, OrteliusEvmTx } from '@/Explorer';
+import { ChainIdType } from '../common';
+import { iAssetDescriptionClean } from '../Asset/types';
+import { OrteliusAvalancheTx, OrteliusEvmTx } from '../Explorer';
 export declare type HistoryItemType = AVMHistoryItemType | PVMHistoryItemType | EVMHistoryITemType | iHistoryItem;
 export declare type AVMHistoryItemType = iHistoryBaseTx | iHistoryImportExport;
 export declare type PVMHistoryItemType = iHistoryStaking;

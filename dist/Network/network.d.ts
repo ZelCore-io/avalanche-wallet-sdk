@@ -5,7 +5,7 @@ import { EVMAPI } from 'avalanche/dist/apis/evm';
 import Web3 from 'web3';
 import { NetworkConfig } from './types';
 import { ethers } from 'ethers';
-import { HttpClient } from '@/helpers/http_client';
+import { HttpClient } from '../helpers/http_client';
 export declare const avalanche: Avalanche;
 export declare const xChain: AVMAPI;
 export declare const cChain: EVMAPI;

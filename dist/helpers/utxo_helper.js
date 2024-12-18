@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.platformGetAllUTXOsForAddresses = exports.platformGetAllUTXOs = exports.avmGetAllUTXOsForAddresses = exports.avmGetAllUTXOs = exports.getStakeForAddresses = exports.evmGetAtomicUTXOs = exports.platformGetAtomicUTXOs = exports.avmGetAtomicUTXOs = void 0;
-const network_1 = require("@/Network/network");
-const idFromAlias_1 = require("@/Network/helpers/idFromAlias");
+const network_1 = require("../Network/network");
+const idFromAlias_1 = require("../Network/helpers/idFromAlias");
 /**
  *
  * @param addrs an array of X chain addresses to get the atomic utxos of

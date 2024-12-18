@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getErc20Token = exports.getContractDataErc20 = exports.addErc20TokenFromData = exports.bustErc20Cache = exports.getErc20Cache = exports.erc20Cache = void 0;
-const Erc20Token_1 = require("@/Asset/Erc20Token");
+const Erc20Token_1 = require("../Asset/Erc20Token");
 exports.erc20Cache = {};
 function getErc20Cache() {
     return {

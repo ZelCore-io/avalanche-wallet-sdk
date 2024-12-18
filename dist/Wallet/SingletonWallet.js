@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SingletonWallet = void 0;
-const Wallet_1 = require("@/Wallet/Wallet");
-const network_1 = require("@/Network/network");
+const Wallet_1 = require("../Wallet/Wallet");
+const network_1 = require("../Network/network");
 const avalanche_1 = require("avalanche");
-const EvmWallet_1 = require("@/Wallet/EVM/EvmWallet");
-const common_1 = require("@/common");
+const EvmWallet_1 = require("../Wallet/EVM/EvmWallet");
+const common_1 = require("../common");
 class SingletonWallet extends Wallet_1.WalletProvider {
     type = 'singleton';
     key = '';

@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createCsvFileOrtelius = exports.parseTxUtxos = void 0;
-const Explorer_1 = require("@/Explorer");
-const Network_1 = require("@/Network");
-const utxoUtils_1 = require("@/Explorer/ortelius/utxoUtils");
-const createCsvContent_1 = require("@/Csv/createCsvContent");
-const utils_1 = require("@/utils");
+const Explorer_1 = require("../Explorer");
+const Network_1 = require("../Network");
+const utxoUtils_1 = require("../Explorer/ortelius/utxoUtils");
+const createCsvContent_1 = require("../Csv/createCsvContent");
+const utils_1 = require("../utils");
 const avalanche_1 = require("avalanche");
 function isExportTx(tx) {
     return tx.type === 'export' || tx.type === 'pvm_export' || tx.type === 'atomic_export_tx';
