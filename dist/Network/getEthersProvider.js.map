@@ -1,0 +1,1 @@
+{"version":3,"file":"getEthersProvider.js","sourceRoot":"","sources":["../../src/Network/getEthersProvider.ts"],"names":[],"mappings":";;;AAAA,mCAAgC;AAGhC,SAAgB,wBAAwB,CAAC,MAAqB;IAC1D,OAAO,IAAI,eAAM,CAAC,SAAS,CAAC,eAAe,CAAC,MAAM,CAAC,MAAM,CAAC,CAAC,EAAE;QACzD,IAAI,EAAE,EAAE;QACR,OAAO,EAAE,MAAM,CAAC,UAAU;KAC7B,CAAC,CAAC;AACP,CAAC;AALD,4DAKC"}
