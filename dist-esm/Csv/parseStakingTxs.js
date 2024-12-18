@@ -1,8 +1,8 @@
-import { isHistoryStakingTx } from '@/History';
-import { bnToBigAvaxP } from '@/utils';
+import { isHistoryStakingTx } from '../History';
+import { bnToBigAvaxP } from '../utils';
 import moment from 'moment';
-import { createCSVContent } from '@/Csv/createCsvContent';
-import { stakingHeaders } from '@/Csv/constants';
+import { createCSVContent } from '../Csv/createCsvContent';
+import { stakingHeaders } from '../Csv/constants';
 import Big from 'big.js';
 /**
  * Given an array of history transactions, filter the staking txs and returns the body of a csv file.

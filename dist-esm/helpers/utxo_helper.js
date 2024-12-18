@@ -1,5 +1,5 @@
-import { xChain, cChain, pChain } from '@/Network/network';
-import { chainIdFromAlias } from '@/Network/helpers/idFromAlias';
+import { xChain, cChain, pChain } from '../Network/network';
+import { chainIdFromAlias } from '../Network/helpers/idFromAlias';
 /**
  *
  * @param addrs an array of X chain addresses to get the atomic utxos of

@@ -1,4 +1,4 @@
-import { ChainIdType } from '@/common';
+import { ChainIdType } from '../../common';
 /**
  * Given a chain alias, returns the chain id.
  * @param alias `X`, `P` or `C`

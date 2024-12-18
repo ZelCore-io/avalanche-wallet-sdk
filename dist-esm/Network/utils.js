@@ -1,5 +1,5 @@
-import { LocalnetConfig, MainnetConfig, TestnetConfig } from '@/Network/constants';
-import { activeNetwork } from '@/Network/network';
+import { LocalnetConfig, MainnetConfig, TestnetConfig } from '../Network/constants';
+import { activeNetwork } from '../Network/network';
 export function isFujiNetwork(activeNetwork) {
     return activeNetwork.networkID === TestnetConfig.networkID;
 }

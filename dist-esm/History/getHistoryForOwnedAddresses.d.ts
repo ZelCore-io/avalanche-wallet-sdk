@@ -1,4 +1,4 @@
-import { OrteliusAvalancheTx } from '@/Explorer';
+import { OrteliusAvalancheTx } from '../Explorer';
 export declare function getHistoryX(addrs: string[], limit?: number): Promise<OrteliusAvalancheTx[]>;
 export declare function getHistoryP(addrs: string[], limit?: number): Promise<OrteliusAvalancheTx[]>;
 /**
@@ -11,7 +11,7 @@ export declare function getHistoryC(addrC: string, addrsX: string[], limit?: num
  * Returns history for this wallet on the C chain.
  * @remarks Excludes atomic C chain import/export transactions.
  */
-export declare function getHistoryEVM(addr: string): Promise<import("@/Explorer").OrteliusEvmTx[]>;
+export declare function getHistoryEVM(addr: string): Promise<import("../Explorer").OrteliusEvmTx[]>;
 /**
  *
  * @param xAddresses A list of owned X chain addresses

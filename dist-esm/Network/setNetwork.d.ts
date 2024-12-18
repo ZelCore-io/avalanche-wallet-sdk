@@ -1,4 +1,4 @@
-import { NetworkConfig } from '@/Network/types';
+import { NetworkConfig } from '../Network/types';
 export declare function setNetwork(conf: NetworkConfig): void;
 /**
  * Unlike `setNetwork` this function will fail if the network is not available.

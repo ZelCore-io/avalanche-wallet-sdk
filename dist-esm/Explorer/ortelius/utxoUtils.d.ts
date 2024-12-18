@@ -1,7 +1,7 @@
 /// <reference types="bn.js" />
-import { OrteliusUTXO } from '@/Explorer';
+import { OrteliusUTXO } from '../../Explorer';
 import { BN } from 'avalanche';
-import { iHistoryBaseTxTokenOwners } from '@/History';
+import { iHistoryBaseTxTokenOwners } from '../../History';
 export declare function filterDuplicateStrings(vals: string[]): string[];
 export declare function isArraysOverlap(arr1: any[], arr2: any[]): boolean;
 /**

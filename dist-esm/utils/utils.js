@@ -1,5 +1,5 @@
 import { Buffer as BufferAvalanche } from 'avalanche';
-import { validateAddress } from '@/helpers/address_helper';
+import { validateAddress } from '../helpers/address_helper';
 import createHash from 'create-hash';
 import { PayloadTypes } from 'avalanche/dist/utils';
 /**

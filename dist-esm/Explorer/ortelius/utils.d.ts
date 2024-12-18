@@ -1,5 +1,5 @@
 /// <reference types="bn.js" />
-import { OrteliusAvalancheTx } from '@/Explorer';
+import { OrteliusAvalancheTx } from '../../Explorer';
 import { BN } from 'avalanche';
 /**
  * Given an array of transactions from the explorer, filter out duplicate transactions

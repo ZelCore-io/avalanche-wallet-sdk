@@ -1,4 +1,4 @@
-import { NetworkConfig } from '@/Network/types';
+import { NetworkConfig } from '../Network/types';
 export declare function isFujiNetwork(activeNetwork: NetworkConfig): boolean;
 export declare function isFujiNetworkId(id: number): boolean;
 export declare function isMainnetNetwork(activeNetwork: NetworkConfig): boolean;

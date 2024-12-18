@@ -1,4 +1,4 @@
-import { cChain, pChain, xChain } from '@/Network/network';
+import { cChain, pChain, xChain } from '../../Network/network';
 /**
  * Given a chain alias, returns the chain id.
  * @param alias `X`, `P` or `C`

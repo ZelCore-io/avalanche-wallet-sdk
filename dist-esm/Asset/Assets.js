@@ -1,4 +1,4 @@
-import { xChain } from '@/Network/network';
+import { xChain } from '../Network/network';
 import xss from 'xss';
 let assetCache = {};
 export function getAssetDescriptionSync(assetId) {

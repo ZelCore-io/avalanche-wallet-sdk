@@ -1,4 +1,4 @@
-import { Erc20Token } from '@/Asset/Erc20Token';
+import { Erc20Token } from '../Asset/Erc20Token';
 export let erc20Cache = {};
 export function getErc20Cache() {
     return {

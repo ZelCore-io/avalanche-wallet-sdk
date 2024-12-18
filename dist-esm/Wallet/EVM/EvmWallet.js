@@ -1,8 +1,8 @@
 import { Buffer as BufferAvalanche } from 'avalanche';
-import { avalanche } from '@/Network/network';
+import { avalanche } from '../../Network/network';
 import { KeyChain as EVMKeyChain, } from 'avalanche/dist/apis/evm';
-import { EvmWalletReadonly } from '@/Wallet/EVM/EvmWalletReadonly';
-import { bintools } from '@/common';
+import { EvmWalletReadonly } from '../../Wallet/EVM/EvmWalletReadonly';
+import { bintools } from '../../common';
 import { computePublicKey } from 'ethers/lib/utils';
 import { personalSign, signTypedData, SignTypedDataVersion, } from '@metamask/eth-sig-util';
 import * as bitcoin from 'bitcoinjs-lib';

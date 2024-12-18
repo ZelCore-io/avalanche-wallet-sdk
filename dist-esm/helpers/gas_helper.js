@@ -1,10 +1,10 @@
-import { activeNetwork, cChain, web3 } from '@/Network/network';
+import { activeNetwork, cChain, web3 } from '../Network/network';
 import { BN } from 'avalanche';
 import { EVMInput, ExportTx, SECPTransferOutput, TransferableOutput, UnsignedTx } from 'avalanche/dist/apis/evm';
-import { bintools } from '@/common';
-import { chainIdFromAlias } from '@/Network';
+import { bintools } from '../common';
+import { chainIdFromAlias } from '../Network';
 import { costExportTx } from 'avalanche/dist/utils';
-import { buildEvmExportTransaction } from '@/helpers/tx_helper';
+import { buildEvmExportTransaction } from '../helpers/tx_helper';
 const MAX_GAS = new BN(1000_000_000_000);
 /**
  * Returns the current gas price in WEI from the network

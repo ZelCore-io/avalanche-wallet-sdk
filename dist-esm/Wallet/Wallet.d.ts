@@ -3,19 +3,19 @@
 import { AssetBalanceP, AssetBalanceRawX, BTCNetworkType, ERC20Balance, ExportChainsC, ExportChainsP, ExportChainsX, iAvaxBalance, WalletBalanceX, WalletEventArgsType, WalletEventType, WalletNameType } from './types';
 import { BN } from 'avalanche';
 import { TypedTransaction } from '@ethereumjs/tx';
-import { EvmWallet } from '@/Wallet/EVM/EvmWallet';
+import { EvmWallet } from '../Wallet/EVM/EvmWallet';
 import { UTXOSet as AVMUTXOSet, UnsignedTx as AVMUnsignedTx, UTXO as AVMUTXO, Tx as AvmTx } from 'avalanche/dist/apis/avm';
 import { UTXOSet as PlatformUTXOSet, UTXO as PlatformUTXO, UnsignedTx as PlatformUnsignedTx, Tx as PlatformTx } from 'avalanche/dist/apis/platformvm';
 import { UnsignedTx as EVMUnsignedTx, Tx as EVMTx, UTXOSet as EVMUTXOSet } from 'avalanche/dist/apis/evm';
 import { PayloadBase } from 'avalanche/dist/utils';
-import { EvmWalletReadonly } from '@/Wallet/EVM/EvmWalletReadonly';
+import { EvmWalletReadonly } from '../Wallet/EVM/EvmWalletReadonly';
 import EventEmitter from 'events';
-import { HistoryItemType } from '@/History';
-import { ChainIdType } from '@/common';
-import { UniversalTx } from '@/UniversalTx';
+import { HistoryItemType } from '../History';
+import { ChainIdType } from '../common';
+import { UniversalTx } from '../UniversalTx';
 import { GetStakeResponse } from 'avalanche/dist/apis/platformvm/interfaces';
-import { NetworkConfig } from '@/Network';
-import { OrteliusAvalancheTx } from '@/Explorer';
+import { NetworkConfig } from '../Network';
+import { OrteliusAvalancheTx } from '../Explorer';
 import { TypedDataV1, TypedMessage } from '@metamask/eth-sig-util';
 export declare abstract class WalletProvider {
     abstract type: WalletNameType;
@@ -359,20 +359,20 @@ export declare abstract class WalletProvider {
      * Returns history for this wallet on the C chain.
      * @remarks Excludes atomic C chain import/export transactions.
      */
-    getHistoryEVM(): Promise<import("@/Explorer").OrteliusEvmTx[]>;
+    getHistoryEVM(): Promise<import("../Explorer").OrteliusEvmTx[]>;
     /**
      * Returns the erc 20 activity for this wallet's C chain address. Uses Snowtrace APIs.
      * @param offset Number of items per page. Optional.
      * @param page If provided will paginate the results. Optional.
      * @param contractAddress Filter activity by the ERC20 contract address. Optional.
      */
-    getHistoryERC20(page?: number, offset?: number, contractAddress?: string): Promise<import("@/Explorer").SnowtraceErc20Tx[]>;
+    getHistoryERC20(page?: number, offset?: number, contractAddress?: string): Promise<import("../Explorer").SnowtraceErc20Tx[]>;
     /**
      * Get a list of 'Normal' Transactions for wallet's C chain address. Uses Snowtrace APIs.
      * @param offset Number of items per page. Optional.
      * @param page If provided will paginate the results. Optional.
      */
-    getHistoryNormalTx(page?: number, offset?: number): Promise<import("@/Explorer").SnowtraceNormalTx[]>;
+    getHistoryNormalTx(page?: number, offset?: number): Promise<import("../Explorer").SnowtraceNormalTx[]>;
     getHistory(limit?: number): Promise<HistoryItemType[]>;
     /**
      * Return sorted history from Ortelius.

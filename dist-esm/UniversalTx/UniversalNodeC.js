@@ -1,4 +1,4 @@
-import { UniversalNodeAbstract } from '@/UniversalTx/UniversalNode';
+import { UniversalNodeAbstract } from '../UniversalTx/UniversalNode';
 export default class UniversalNodeC extends UniversalNodeAbstract {
     constructor(balance, feeExport, feeImport) {
         super(balance, 'C', feeExport, feeImport);

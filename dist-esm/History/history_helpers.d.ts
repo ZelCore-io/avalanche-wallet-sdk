@@ -1,5 +1,5 @@
-import { OrteliusUTXO } from '@/Explorer';
-import { iHistoryNftFamilyBalance } from '@/History/types';
+import { OrteliusUTXO } from '../Explorer';
+import { iHistoryNftFamilyBalance } from '../History/types';
 /**
  * Parse the raw memo field to readable text.
  * @param raw

@@ -1,8 +1,8 @@
-import { WalletProvider } from '@/Wallet/Wallet';
-import { pChain, xChain } from '@/Network/network';
+import { WalletProvider } from '../Wallet/Wallet';
+import { pChain, xChain } from '../Network/network';
 import { Buffer as BufferAvalanche } from 'avalanche';
-import { EvmWallet } from '@/Wallet/EVM/EvmWallet';
-import { bintools } from '@/common';
+import { EvmWallet } from '../Wallet/EVM/EvmWallet';
+import { bintools } from '../common';
 export class SingletonWallet extends WalletProvider {
     type = 'singleton';
     key = '';

@@ -1,6 +1,6 @@
-import UniversalNodeX from '@/UniversalTx/UniversalNodeX';
-import UniversalNodeP from '@/UniversalTx/UniversalNodeP';
-import UniversalNodeC from '@/UniversalTx/UniversalNodeC';
+import UniversalNodeX from '../UniversalTx/UniversalNodeX';
+import UniversalNodeP from '../UniversalTx/UniversalNodeP';
+import UniversalNodeC from '../UniversalTx/UniversalNodeC';
 export function createGraphForP(balX, balP, balC, atomicFeeXP, atomicFeeC) {
     let xNode = new UniversalNodeX(balX, atomicFeeXP, atomicFeeXP);
     let pNode = new UniversalNodeP(balP, atomicFeeXP, atomicFeeXP);

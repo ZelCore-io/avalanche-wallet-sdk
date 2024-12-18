@@ -1,4 +1,4 @@
-import { cChain, pChain, web3, xChain } from '@/Network/network';
+import { cChain, pChain, web3, xChain } from '../Network/network';
 /**
  * Waits until the given tx id is accepted on X chain
  * @param txId Tx ID to wait for

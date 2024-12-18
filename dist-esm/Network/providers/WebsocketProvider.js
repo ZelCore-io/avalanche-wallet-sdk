@@ -1,7 +1,7 @@
-import { AVMWebSocketProvider } from '@/Network/providers/AVMWebSocketProvider';
-import { EVMWebSocketProvider } from '@/Network/providers/EVMWebSocketProvider';
-import { wsUrlFromConfigEVM, wsUrlFromConfigX } from '@/helpers/network_helper';
-import { activeNetwork } from '@/Network/network';
+import { AVMWebSocketProvider } from '../../Network/providers/AVMWebSocketProvider';
+import { EVMWebSocketProvider } from '../../Network/providers/EVMWebSocketProvider';
+import { wsUrlFromConfigEVM, wsUrlFromConfigX } from '../../helpers/network_helper';
+import { activeNetwork } from '../../Network/network';
 export class WebsocketProvider {
     avmProvider;
     evmProvider;

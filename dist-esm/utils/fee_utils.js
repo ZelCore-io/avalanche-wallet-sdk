@@ -1,4 +1,4 @@
-import { pChain, xChain } from '@/Network/network';
+import { pChain, xChain } from '../Network/network';
 /**
  * Returns the transaction fee for X chain.
  */

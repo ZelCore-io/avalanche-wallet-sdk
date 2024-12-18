@@ -1,5 +1,5 @@
 import Web3 from 'web3';
-import { bintools } from '@/common';
+import { bintools } from '../common';
 export const validateAddress = (address) => {
     return (validateAddressX(address) ||
         validateAddressP(address) ||

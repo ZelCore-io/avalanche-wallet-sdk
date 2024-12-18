@@ -1,7 +1,7 @@
-import { isHistoryBaseTx, isHistoryEVMTx, isHistoryImportExportTx } from '@/History';
-import { normalHeaders } from '@/Csv/constants';
-import { createCSVContent } from '@/Csv/createCsvContent';
-import { bnToBig, bnToBigAvaxC, bnToBigAvaxX } from '@/utils';
+import { isHistoryBaseTx, isHistoryEVMTx, isHistoryImportExportTx } from '../History';
+import { normalHeaders } from '../Csv/constants';
+import { createCSVContent } from '../Csv/createCsvContent';
+import { bnToBig, bnToBigAvaxC, bnToBigAvaxX } from '../utils';
 import moment from 'moment';
 /**
  * Given an array of history transactions, filter the base and export/import txs and returns the body of a csv file.

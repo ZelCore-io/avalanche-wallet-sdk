@@ -1,5 +1,5 @@
-import { explorer_api } from '@/Network/network';
-import { NO_EXPLORER_API } from '@/errors';
+import { explorer_api } from '../../Network/network';
+import { NO_EXPLORER_API } from '../../errors';
 /**
  * Returns transactions FROM and TO the address given
  * @param addr The address to get historic transactions for.

@@ -1,4 +1,4 @@
-import { getOutputTotals } from '@/Explorer/ortelius/utxoUtils';
+import { getOutputTotals } from '../../Explorer/ortelius/utxoUtils';
 /**
  * Given an array of transactions from the explorer, filter out duplicate transactions
  * @param txs

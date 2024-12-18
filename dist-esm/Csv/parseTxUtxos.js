@@ -1,8 +1,8 @@
-import { findDestinationChain, findSourceChain } from '@/Explorer';
-import { activeNetwork, idToChainAlias } from '@/Network';
-import { isOutputOwner } from '@/Explorer/ortelius/utxoUtils';
-import { createCSVContent } from '@/Csv/createCsvContent';
-import { bnToBig } from '@/utils';
+import { findDestinationChain, findSourceChain } from '../Explorer';
+import { activeNetwork, idToChainAlias } from '../Network';
+import { isOutputOwner } from '../Explorer/ortelius/utxoUtils';
+import { createCSVContent } from '../Csv/createCsvContent';
+import { bnToBig } from '../utils';
 import { BN } from 'avalanche';
 function isExportTx(tx) {
     return tx.type === 'export' || tx.type === 'pvm_export' || tx.type === 'atomic_export_tx';

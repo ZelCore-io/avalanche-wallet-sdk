@@ -1,4 +1,4 @@
-import { cChain, ethersProvider, pChain, web3, xChain } from '@/Network/network';
+import { cChain, ethersProvider, pChain, web3, xChain } from '../Network/network';
 import { AVMConstants, MinterSet, } from 'avalanche/dist/apis/avm';
 import { OutputOwners } from 'avalanche/dist/common';
 import { PlatformVMConstants } from 'avalanche/dist/apis/platformvm';
@@ -7,9 +7,9 @@ import { FeeMarketEIP1559Transaction, TransactionFactory } from '@ethereumjs/tx'
 import { Common as EthereumjsCommon } from '@ethereumjs/common';
 import ERC20Abi from '../Asset/ERC20.json';
 import ERC721Abi from '../Asset/ERC721/ERC721.json';
-import { bintools } from '@/common';
-import { chainIdFromAlias } from '@/Network/helpers/idFromAlias';
-import { getErc721TokenEthers } from '@/Asset';
+import { bintools } from '../common';
+import { chainIdFromAlias } from '../Network/helpers/idFromAlias';
+import { getErc721TokenEthers } from '../Asset';
 export async function buildCreateNftFamilyTx(name, symbol, groupNum, fromAddrs, minterAddr, changeAddr, utxoSet) {
     let fromAddresses = fromAddrs;
     let changeAddress = changeAddr;

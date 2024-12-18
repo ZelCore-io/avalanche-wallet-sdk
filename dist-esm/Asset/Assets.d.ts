@@ -1,4 +1,4 @@
-import { iAssetDescriptionClean } from '@/Asset/types';
+import { iAssetDescriptionClean } from '../Asset/types';
 export declare function getAssetDescriptionSync(assetId: string): iAssetDescriptionClean;
 /**
  * Uses the node api to get meta data given an asset ID. Saves the result to cache.

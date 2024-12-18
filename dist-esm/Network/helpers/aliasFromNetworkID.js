@@ -1,4 +1,4 @@
-import { activeNetwork } from '@/Network/network';
+import { activeNetwork } from '../../Network/network';
 /**
  * Given the chain ID returns the chain alias
  * @param id Chain id

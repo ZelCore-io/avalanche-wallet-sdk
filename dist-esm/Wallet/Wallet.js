@@ -1,24 +1,24 @@
-import { buildAvmExportTransaction, buildCreateNftFamilyTx, buildCustomEvmTx, buildEvmExportTransaction, buildEvmTransferErc20Tx, buildEvmTransferErc721Tx, buildEvmTransferNativeTx, buildMintNftTx, buildPlatformExportTransaction, estimateAvaxGas, estimateErc20Gas, } from '@/helpers/tx_helper';
+import { buildAvmExportTransaction, buildCreateNftFamilyTx, buildCustomEvmTx, buildEvmExportTransaction, buildEvmTransferErc20Tx, buildEvmTransferErc721Tx, buildEvmTransferNativeTx, buildMintNftTx, buildPlatformExportTransaction, estimateAvaxGas, estimateErc20Gas, } from '../helpers/tx_helper';
 import { BN, Buffer } from 'avalanche';
-import { activeNetwork, avalanche, cChain, pChain, web3, xChain } from '@/Network/network';
-import { avmGetAllUTXOs, avmGetAtomicUTXOs, evmGetAtomicUTXOs, getStakeForAddresses, platformGetAllUTXOs, platformGetAtomicUTXOs, } from '@/helpers/utxo_helper';
+import { activeNetwork, avalanche, cChain, pChain, web3, xChain } from '../Network/network';
+import { avmGetAllUTXOs, avmGetAtomicUTXOs, evmGetAtomicUTXOs, getStakeForAddresses, platformGetAllUTXOs, platformGetAtomicUTXOs, } from '../helpers/utxo_helper';
 import { UTXOSet as AVMUTXOSet, AVMConstants, } from 'avalanche/dist/apis/avm';
 import { UTXOSet as PlatformUTXOSet, PlatformVMConstants, } from 'avalanche/dist/apis/platformvm';
 import { UnixNow } from 'avalanche/dist/utils';
-import { getAssetDescription } from '@/Asset/Assets';
-import { getErc20Token } from '@/Asset/Erc20';
-import { NO_NETWORK } from '@/errors';
-import { avaxCtoX, bnToLocaleString, waitTxC, waitTxEvm, waitTxP, waitTxX } from '@/utils';
+import { getAssetDescription } from '../Asset/Assets';
+import { getErc20Token } from '../Asset/Erc20';
+import { NO_NETWORK } from '../errors';
+import { avaxCtoX, bnToLocaleString, waitTxC, waitTxEvm, waitTxP, waitTxX } from '../utils';
 import EventEmitter from 'events';
-import { getHistoryForOwnedAddressesRaw, getTransactionSummary, getTransactionSummaryEVM, } from '@/History';
-import { bintools } from '@/common';
-import { createGraphForC, createGraphForP, createGraphForX, getStepsForBalanceC, getStepsForBalanceP, getStepsForBalanceX, } from '@/UniversalTx';
-import { networkEvents } from '@/Network/eventEmitter';
-import { chainIdFromAlias } from '@/Network/helpers/idFromAlias';
-import { estimateExportGasFeeFromMockTx, estimateImportGasFeeFromMockTx, getBaseFeeRecommended, } from '@/helpers/gas_helper';
-import { getErc20History, getNormalHistory } from '@/Explorer/snowtrace';
-import { getAddressHistory, getAddressHistoryEVM, getTx, getTxEvm, } from '@/Explorer';
-import { getHistoryForOwnedAddresses } from '@/History/getHistoryForOwnedAddresses';
+import { getHistoryForOwnedAddressesRaw, getTransactionSummary, getTransactionSummaryEVM, } from '../History';
+import { bintools } from '../common';
+import { createGraphForC, createGraphForP, createGraphForX, getStepsForBalanceC, getStepsForBalanceP, getStepsForBalanceX, } from '../UniversalTx';
+import { networkEvents } from '../Network/eventEmitter';
+import { chainIdFromAlias } from '../Network/helpers/idFromAlias';
+import { estimateExportGasFeeFromMockTx, estimateImportGasFeeFromMockTx, getBaseFeeRecommended, } from '../helpers/gas_helper';
+import { getErc20History, getNormalHistory } from '../Explorer/snowtrace';
+import { getAddressHistory, getAddressHistoryEVM, getTx, getTxEvm, } from '../Explorer';
+import { getHistoryForOwnedAddresses } from '../History/getHistoryForOwnedAddresses';
 export class WalletProvider {
     /**
      * The X chain UTXOs of the wallet's current state

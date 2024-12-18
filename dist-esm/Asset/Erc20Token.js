@@ -1,6 +1,6 @@
-import { activeNetwork, web3 } from '@/Network/network';
+import { activeNetwork, web3 } from '../Network/network';
 import ERC20Abi from './ERC20.json';
-import { NO_NETWORK } from '@/errors';
+import { NO_NETWORK } from '../errors';
 import { BN } from 'avalanche';
 import xss from 'xss';
 export class Erc20Token {

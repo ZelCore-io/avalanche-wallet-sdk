@@ -1,9 +1,9 @@
-import { parseMemo } from '@/History/history_helpers';
-import { idToChainAlias } from '@/Network/helpers/aliasFromNetworkID';
-import { xChain } from '@/Network/network';
-import { bnToAvaxX, strip0x } from '@/utils';
-import { getOutputsOfChain, getOutputTotals, getOwnedOutputs } from '@/Explorer/ortelius/utxoUtils';
-import { findDestinationChain, findSourceChain } from '@/Explorer';
+import { parseMemo } from '../History/history_helpers';
+import { idToChainAlias } from '../Network/helpers/aliasFromNetworkID';
+import { xChain } from '../Network/network';
+import { bnToAvaxX, strip0x } from '../utils';
+import { getOutputsOfChain, getOutputTotals, getOwnedOutputs } from '../Explorer/ortelius/utxoUtils';
+import { findDestinationChain, findSourceChain } from '../Explorer';
 import { BN } from 'avalanche';
 export function getImportSummary(tx, addresses, evmAddr) {
     let sourceChain = findSourceChain(tx);

@@ -1,6 +1,6 @@
-import { setRpcNetwork, setRpcNetworkAsync } from '@/Network/network';
-import { emitNetworkChange } from '@/Network/eventEmitter';
-import { bustErc20Cache } from '@/Asset/Erc20';
+import { setRpcNetwork, setRpcNetworkAsync } from '../Network/network';
+import { emitNetworkChange } from '../Network/eventEmitter';
+import { bustErc20Cache } from '../Asset/Erc20';
 export function setNetwork(conf) {
     setRpcNetwork(conf);
     emitNetworkChange(conf);
