@@ -1,4 +1,4 @@
-import { NetworkConfig } from '@/Network/types';
+import { NetworkConfig } from '../Network/types';
 
 import { Avalanche } from 'avalanche';
 import { HttpClient } from './http_client';

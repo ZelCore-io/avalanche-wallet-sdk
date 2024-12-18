@@ -1,8 +1,8 @@
 import { BN } from 'avalanche';
-import { UniversalTx } from '@/UniversalTx/types';
-import UniversalNodeX from '@/UniversalTx/UniversalNodeX';
-import UniversalNodeP from '@/UniversalTx/UniversalNodeP';
-import UniversalNodeC from '@/UniversalTx/UniversalNodeC';
+import { UniversalTx } from '../UniversalTx/types';
+import UniversalNodeX from '../UniversalTx/UniversalNodeX';
+import UniversalNodeP from '../UniversalTx/UniversalNodeP';
+import UniversalNodeC from '../UniversalTx/UniversalNodeC';
 
 export function createGraphForP(balX: BN, balP: BN, balC: BN, atomicFeeXP: BN, atomicFeeC: BN): UniversalNodeP {
     let xNode = new UniversalNodeX(balX, atomicFeeXP, atomicFeeXP);

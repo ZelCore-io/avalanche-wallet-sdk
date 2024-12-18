@@ -1,11 +1,11 @@
-import { activeNetwork, cChain, web3 } from '@/Network/network';
+import { activeNetwork, cChain, web3 } from '../Network/network';
 import { BN } from 'avalanche';
 import { EVMInput, ExportTx, SECPTransferOutput, TransferableOutput, UnsignedTx } from 'avalanche/dist/apis/evm';
-import { ExportChainsC } from '@/Wallet/types';
-import { bintools } from '@/common';
-import { chainIdFromAlias } from '@/Network';
+import { ExportChainsC } from '../Wallet/types';
+import { bintools } from '../common';
+import { chainIdFromAlias } from '../Network';
 import { costExportTx, costImportTx } from 'avalanche/dist/utils';
-import { buildEvmExportTransaction } from '@/helpers/tx_helper';
+import { buildEvmExportTransaction } from '../helpers/tx_helper';
 
 const MAX_GAS = new BN(1000_000_000_000);
 

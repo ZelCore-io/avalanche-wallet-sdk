@@ -1,7 +1,7 @@
-import { OrteliusUTXO } from '@/Explorer';
+import { OrteliusUTXO } from '../../Explorer';
 import { BN } from 'avalanche';
-import { iHistoryBaseTxTokenOwners } from '@/History';
-import { strip0x } from '@/utils';
+import { iHistoryBaseTxTokenOwners } from '../../History';
+import { strip0x } from '../../utils';
 
 export function filterDuplicateStrings(vals: string[]) {
     return vals.filter((val, i) => vals.indexOf(val) === i);

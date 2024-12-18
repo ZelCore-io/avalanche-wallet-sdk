@@ -2,9 +2,9 @@ import { KeyPair as AVMKeyPair } from 'avalanche/dist/apis/avm';
 
 import { BN } from 'avalanche';
 
-import { SingletonWallet } from '@/Wallet/SingletonWallet';
+import { SingletonWallet } from '../Wallet/SingletonWallet';
 
-import { iAssetDescriptionClean } from '@/Asset/types';
+import { iAssetDescriptionClean } from '../Asset/types';
 
 export interface IIndexKeyCache {
     [index: number]: AVMKeyPair;

@@ -1,14 +1,14 @@
 import { Buffer as BufferAvalanche } from 'avalanche';
 import { TypedTransaction } from '@ethereumjs/tx';
-import { avalanche } from '@/Network/network';
+import { avalanche } from '../../Network/network';
 import {
     KeyChain as EVMKeyChain,
     KeyPair as EVMKeyPair,
     Tx as EVMTx,
     UnsignedTx as EVMUnsignedTx,
 } from 'avalanche/dist/apis/evm';
-import { EvmWalletReadonly } from '@/Wallet/EVM/EvmWalletReadonly';
-import { bintools } from '@/common';
+import { EvmWalletReadonly } from '../../Wallet/EVM/EvmWalletReadonly';
+import { bintools } from '../../common';
 import { computePublicKey } from 'ethers/lib/utils';
 import {
     MessageTypes,

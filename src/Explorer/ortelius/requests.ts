@@ -1,6 +1,6 @@
-import { explorer_api } from '@/Network/network';
-import { NO_EXPLORER_API } from '@/errors';
-import { OrteliusAvalancheTx, OrteliusEvmTx } from '@/Explorer';
+import { explorer_api } from '../../Network/network';
+import { NO_EXPLORER_API } from '../../errors';
+import { OrteliusAvalancheTx, OrteliusEvmTx } from '../../Explorer';
 
 /**
  * Returns transactions FROM and TO the address given

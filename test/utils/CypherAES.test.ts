@@ -1,4 +1,4 @@
-import { CypherAES } from '@/utils';
+import { CypherAES } from '../../src/utils';
 import randomstring from 'randomstring';
 import * as bip39 from 'bip39';
 

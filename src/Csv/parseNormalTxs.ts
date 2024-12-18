@@ -1,7 +1,7 @@
-import { HistoryItemType, isHistoryBaseTx, isHistoryEVMTx, isHistoryImportExportTx } from '@/History';
-import { normalHeaders } from '@/Csv/constants';
-import { createCSVContent } from '@/Csv/createCsvContent';
-import { bnToBig, bnToBigAvaxC, bnToBigAvaxX } from '@/utils';
+import { HistoryItemType, isHistoryBaseTx, isHistoryEVMTx, isHistoryImportExportTx } from '../History';
+import { normalHeaders } from '../Csv/constants';
+import { createCSVContent } from '../Csv/createCsvContent';
+import { bnToBig, bnToBigAvaxC, bnToBigAvaxX } from '../utils';
 import moment from 'moment';
 
 /**

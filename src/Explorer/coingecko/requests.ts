@@ -1,4 +1,4 @@
-import { CoinGeckoPriceHistoryResponse } from '@/Explorer/coingecko/types';
+import { CoinGeckoPriceHistoryResponse } from '../../Explorer/coingecko/types';
 
 const COINGECKO_BASE_URL = 'https://api.coingecko.com/api/v3';
 const AVAX_COIN_ID = 'avalanche-2';

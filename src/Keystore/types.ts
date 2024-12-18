@@ -1,4 +1,4 @@
-import { WalletNameType } from '@/Wallet/types';
+import { WalletNameType } from '../Wallet/types';
 
 export type KeystoreFileKeyType = 'mnemonic' | 'singleton';
 export type AllKeyFileTypes = KeyFileV2 | KeyFileV3 | KeyFileV4 | KeyFileV5 | KeyFileV6;

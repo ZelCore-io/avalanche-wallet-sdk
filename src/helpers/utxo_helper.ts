@@ -1,9 +1,9 @@
 import { UTXOSet as AVMUTXOSet } from 'avalanche/dist/apis/avm/utxos';
 import { UTXOSet as PlatformUTXOSet } from 'avalanche/dist/apis/platformvm/utxos';
 import { UTXOSet as EVMUTXOSet } from 'avalanche/dist/apis/evm/utxos';
-import { xChain, cChain, pChain } from '@/Network/network';
-import { ExportChainsC, ExportChainsP, ExportChainsX } from '@/Wallet/types';
-import { chainIdFromAlias } from '@/Network/helpers/idFromAlias';
+import { xChain, cChain, pChain } from '../Network/network';
+import { ExportChainsC, ExportChainsP, ExportChainsX } from '../Wallet/types';
+import { chainIdFromAlias } from '../Network/helpers/idFromAlias';
 import { GetStakeResponse } from 'avalanche/dist/apis/platformvm/interfaces';
 
 /**

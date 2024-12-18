@@ -7,18 +7,18 @@ import { DefaultConfig } from './constants';
 import { NetworkConfig, NetworkConfigRpc, NetworkProtocolType } from './types';
 import { getRpcC, getRpcP, getRpcX } from './helpers/rpcFromConfig';
 import URL from 'url';
-import { bintools } from '@/common';
+import { bintools } from '../common';
 import {
     canUseCredentials,
     createAvalancheProvider,
     createExplorerApi,
     getNetworkIdFromURL,
-} from '@/helpers/network_helper';
+} from '../helpers/network_helper';
 
-import { FetchHttpProvider } from '@/utils/FetchHTTPProvider';
-import { getEthersJsonRpcProvider } from '@/Network/getEthersProvider';
+import { FetchHttpProvider } from '../utils/FetchHTTPProvider';
+import { getEthersJsonRpcProvider } from '../Network/getEthersProvider';
 import { ethers } from 'ethers';
-import { HttpClient } from '@/helpers/http_client';
+import { HttpClient } from '../helpers/http_client';
 
 export const avalanche: Avalanche = createAvalancheProvider(DefaultConfig);
 

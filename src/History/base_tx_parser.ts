@@ -5,12 +5,12 @@ import {
     iHistoryBaseTxToken,
     iHistoryBaseTxTokenLossGain,
     iHistoryBaseTxTokenOwners,
-} from '@/History';
-import * as Assets from '@/Asset/Assets';
-import { bnToLocaleString, getTxFeeX } from '@/utils';
+} from '../History';
+import * as Assets from '../Asset/Assets';
+import { bnToLocaleString, getTxFeeX } from '../utils';
 import { AVMConstants } from 'avalanche/dist/apis/avm';
 import { BN } from 'avalanche';
-import { getNFTBalanceFromUTXOs, parseMemo } from '@/History/history_helpers';
+import { getNFTBalanceFromUTXOs, parseMemo } from '../History/history_helpers';
 import {
     filterDuplicateStrings,
     getAssetOutputs,
@@ -20,9 +20,9 @@ import {
     getOutputsOfType,
     getOutputTotals,
     getOwnedOutputs,
-} from '@/Explorer/ortelius/utxoUtils';
-import { getAvaxAssetID } from '@/Network/utils';
-import { OrteliusAvalancheTx, OrteliusUTXO } from '@/Explorer';
+} from '../Explorer/ortelius/utxoUtils';
+import { getAvaxAssetID } from '../Network/utils';
+import { OrteliusAvalancheTx, OrteliusUTXO } from '../Explorer';
 
 export async function getBaseTxSummary(tx: OrteliusAvalancheTx, ownerAddrs: string[]): Promise<iHistoryBaseTx> {
     let ins = tx.inputs?.map((input) => input.output) || [];

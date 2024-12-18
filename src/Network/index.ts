@@ -1,5 +1,5 @@
-import { MainnetConfig } from '@/Network/constants';
-import { setNetwork } from '@/Network/setNetwork';
+import { MainnetConfig } from '../Network/constants';
+import { setNetwork } from '../Network/setNetwork';
 
 export * from './helpers';
 export * from './providers';

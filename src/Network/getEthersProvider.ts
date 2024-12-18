@@ -1,5 +1,5 @@
 import { ethers } from 'ethers';
-import { NetworkConfig } from '@/Network/types';
+import { NetworkConfig } from '../Network/types';
 
 export function getEthersJsonRpcProvider(config: NetworkConfig) {
     return new ethers.providers.JsonRpcProvider(config.rpcUrl.c, {

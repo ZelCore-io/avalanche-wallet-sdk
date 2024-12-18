@@ -1,8 +1,8 @@
-import { OrteliusUTXO } from '@/Explorer';
-import { iHistoryNftFamilyBalance } from '@/History/types';
+import { OrteliusUTXO } from '../Explorer';
+import { iHistoryNftFamilyBalance } from '../History/types';
 import { AVMConstants } from 'avalanche/dist/apis/avm';
-import { parseNftPayload } from '@/utils';
-import { isOutputOwner } from '@/Explorer/ortelius/utxoUtils';
+import { parseNftPayload } from '../utils';
+import { isOutputOwner } from '../Explorer/ortelius/utxoUtils';
 
 /**
  * Parse the raw memo field to readable text.

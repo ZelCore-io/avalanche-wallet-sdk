@@ -1,4 +1,4 @@
-import { cChain, ethersProvider, pChain, web3, xChain } from '@/Network/network';
+import { cChain, ethersProvider, pChain, web3, xChain } from '../Network/network';
 
 import { BN, Buffer } from 'avalanche';
 import {
@@ -22,10 +22,10 @@ import { Common as EthereumjsCommon } from '@ethereumjs/common';
 
 import ERC20Abi from '../Asset/ERC20.json';
 import ERC721Abi from '../Asset/ERC721/ERC721.json';
-import { bintools } from '@/common';
-import { ExportChainsC, ExportChainsP, ExportChainsX } from '@/Wallet/types';
-import { chainIdFromAlias } from '@/Network/helpers/idFromAlias';
-import { getErc721TokenEthers } from '@/Asset';
+import { bintools } from '../common';
+import { ExportChainsC, ExportChainsP, ExportChainsX } from '../Wallet/types';
+import { chainIdFromAlias } from '../Network/helpers/idFromAlias';
+import { getErc721TokenEthers } from '../Asset';
 
 export async function buildCreateNftFamilyTx(
     name: string,

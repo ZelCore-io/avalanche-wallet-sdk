@@ -1,6 +1,6 @@
-import { ChainIdType } from '@/common';
+import { ChainIdType } from '../common';
 import Web3 from 'web3';
-import { bintools } from '@/common';
+import { bintools } from '../common';
 
 export const validateAddress = (address: string): boolean | string => {
     return (

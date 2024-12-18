@@ -1,11 +1,11 @@
-import { UniversalNodeAbstract } from '@/UniversalTx/UniversalNode';
-import { ExportChainsC } from '@/Wallet/types';
+import { UniversalNodeAbstract } from '../UniversalTx/UniversalNode';
+import { ExportChainsC } from '../Wallet/types';
 import {
     UniversalTxActionExportC,
     UniversalTxActionImportC,
     UniversalTxExportC,
     UniversalTxImportC,
-} from '@/UniversalTx/types';
+} from '../UniversalTx/types';
 import { BN } from 'avalanche';
 
 export default class UniversalNodeC extends UniversalNodeAbstract {
