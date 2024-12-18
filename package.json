@@ -25,7 +25,6 @@
         "docs:watch": "typedoc --watch",
         "docs": "typedoc",
         "lint": "eslint .",
-        "prepare": "yarn build",
         "test:watch": "NODE_OPTIONS=--openssl-legacy-provider jest --watch",
         "test": "NODE_OPTIONS=--openssl-legacy-provider jest",
         "test:win": "set NODE_OPTIONS=--openssl-legacy-provider && jest"

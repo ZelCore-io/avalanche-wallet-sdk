@@ -156,7 +156,7 @@ export abstract class WalletProvider {
      * Call after getting done with the wallet to avoi memory leaks and remove event listeners
      */
     public destroy() {
-        networkEvents.off('network_change', this.onNetworkChange);
+        networkEvents.removeAllListeners('network_change');
     }
 
     /**
