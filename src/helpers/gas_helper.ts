@@ -13,7 +13,8 @@ const MAX_GAS = new BN(1000_000_000_000);
  * Returns the current gas price in WEI from the network
  */
 export async function getGasPrice(): Promise<BN> {
-    return new BN(await web3.eth.getGasPrice());
+    const gas = await web3.eth.getGasPrice();
+    return new BN(gas.toString());
 }
 
 /**

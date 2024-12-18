@@ -65,7 +65,7 @@ export class EvmWalletReadonly {
 
     async updateBalance() {
         let bal = await web3.eth.getBalance(this.address);
-        this.balance = new BN(bal);
+        this.balance = new BN(bal.toString());
         return this.balance;
     }
 

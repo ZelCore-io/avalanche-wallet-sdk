@@ -6,7 +6,7 @@ import { BN } from 'avalanche';
 import { Contract } from 'web3-eth-contract';
 import xss from 'xss';
 export class Erc20Token {
-    contract: Contract;
+    contract: Contract<typeof ERC20Abi.abi>;
     address: string;
     name: string;
     symbol: string;
@@ -40,9 +40,9 @@ export class Erc20Token {
             contract.methods.decimals().call(),
         ]);
         // Purify the values for XSS protection
-        let name = xss(contractCalls[0]);
-        let symbol = xss(contractCalls[1]);
-        let decimals = parseInt(contractCalls[2]);
+        let name = xss(typeof contractCalls[0] === 'string' ? contractCalls[0] : '');
+        let symbol = xss(typeof contractCalls[1] === 'string' ? contractCalls[1] : '');
+        let decimals = parseInt(typeof contractCalls[2] === 'string' ? contractCalls[2] : '0');
 
         if (!activeNetwork) {
             throw NO_NETWORK;
@@ -59,6 +59,9 @@ export class Erc20Token {
 
     async balanceOf(address: string): Promise<BN> {
         let bal = await this.contract.methods.balanceOf(address).call();
-        return new BN(bal);
+        if (typeof bal === 'string') {
+            return new BN(bal);
+        }
+        return new BN(0);
     }
 }

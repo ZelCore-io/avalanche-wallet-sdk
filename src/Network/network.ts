@@ -148,7 +148,7 @@ export async function getConfigFromUrl(url: string): Promise<NetworkConfig> {
         pChainID: idP,
         cChainID: idC,
         avaxID: avaxId,
-        evmChainID: evmChainId,
+        evmChainID: Number(evmChainId.toString()),
         get rpcUrl(): NetworkConfigRpc {
             return {
                 c: getRpcC(this),
