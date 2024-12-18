@@ -46,7 +46,6 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
-dist/
 
 # TypeScript v1 declaration files
 typings/
@@ -114,4 +113,4 @@ public/
 TODO.md
 
 test_app
-
+yarn.lock
