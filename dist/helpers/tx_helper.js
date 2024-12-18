@@ -131,8 +131,8 @@ async function buildCustomEvmTx(from, gasPrice, gasLimit, data, to, value, nonce
         gasPrice: `0x${gasPrice.toString('hex')}`,
         gasLimit,
         value: `0x${value?.replace('0x', '') || ''}`,
-        to: !!to ? `0x${to?.replace('0x', '')}` : undefined,
-        data: !!data ? `0x${data.replace('0x', '')}` : undefined,
+        to: to ? `0x${to?.replace('0x', '')}` : undefined,
+        data: data ? `0x${data.replace('0x', '')}` : undefined,
     }, chainParams);
     return tx;
 }

@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const buffer_1 = require("buffer/");
 const create_hash_1 = tslib_1.__importDefault(require("create-hash"));
+const node_crypto_1 = tslib_1.__importDefault(require("node:crypto"));
 /**
  * @ignore
  */
@@ -32,7 +33,7 @@ class CryptoHelpers {
      * @param pwkey
      */
     async _keyMaterial(pwkey) {
-        return crypto.subtle.importKey('raw', new Uint8Array(pwkey), { name: 'PBKDF2' }, false, ['deriveKey']);
+        return node_crypto_1.default.subtle.importKey('raw', new Uint8Array(pwkey), { name: 'PBKDF2' }, false, ['deriveKey']);
     }
     /**
      * Internal-intended function for turning an intermediate key into a salted key.
@@ -41,7 +42,7 @@ class CryptoHelpers {
      * @param salt
      */
     async _deriveKey(keyMaterial, salt) {
-        return crypto.subtle.deriveKey({
+        return node_crypto_1.default.subtle.deriveKey({
             name: 'PBKDF2',
             salt,
             iterations: this.keygenIterations,
@@ -70,7 +71,7 @@ class CryptoHelpers {
      */
     makeSalt() {
         const salt = buffer_1.Buffer.alloc(this.saltSize);
-        crypto.getRandomValues(salt);
+        node_crypto_1.default.getRandomValues(salt);
         return salt;
     }
     /**
@@ -123,8 +124,8 @@ class CryptoHelpers {
         const pwkey = this._pwcleaner(password, slt);
         const keyMaterial = await this._keyMaterial(pwkey);
         const pkey = await this._deriveKey(keyMaterial, slt);
-        const iv = buffer_1.Buffer.from(crypto.getRandomValues(new Uint8Array(this.ivSize)));
-        const ciphertext = buffer_1.Buffer.from(await crypto.subtle.encrypt({
+        const iv = buffer_1.Buffer.from(node_crypto_1.default.getRandomValues(new Uint8Array(this.ivSize)));
+        const ciphertext = buffer_1.Buffer.from(await node_crypto_1.default.subtle.encrypt({
             name: 'AES-GCM',
             iv,
             additionalData: slt,
@@ -148,7 +149,7 @@ class CryptoHelpers {
         const pwkey = this._pwcleaner(password, salt);
         const keyMaterial = await this._keyMaterial(pwkey);
         const pkey = await this._deriveKey(keyMaterial, salt);
-        const pt = buffer_1.Buffer.from(await crypto.subtle.decrypt({
+        const pt = buffer_1.Buffer.from(await node_crypto_1.default.subtle.decrypt({
             name: 'AES-GCM',
             iv,
             additionalData: salt,
