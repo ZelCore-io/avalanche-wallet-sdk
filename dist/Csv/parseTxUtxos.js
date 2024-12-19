@@ -6,7 +6,7 @@ const Network_1 = require("../Network");
 const utxoUtils_1 = require("../Explorer/ortelius/utxoUtils");
 const createCsvContent_1 = require("../Csv/createCsvContent");
 const utils_1 = require("../utils");
-const avalanche_1 = require("avalanche");
+const avalanchejs_1 = require("@avalabs/avalanchejs");
 function isExportTx(tx) {
     return tx.type === 'export' || tx.type === 'pvm_export' || tx.type === 'atomic_export_tx';
 }
@@ -35,7 +35,7 @@ function parseTxUtxos(txs, ownedAddresses) {
                 chain: chainAlias,
                 isInput: true,
                 isOwner: (0, utxoUtils_1.isOutputOwner)(ownedAddresses, txIn.output),
-                amount: (0, utils_1.bnToBig)(new avalanche_1.BN(txIn.output.amount), decimals).toString(),
+                amount: (0, utils_1.bnToBig)(new avalanchejs_1.BN(txIn.output.amount), decimals).toString(),
                 owners: txIn.output.addresses || txIn.output.caddresses || [],
                 locktime: txIn.output.locktime,
                 threshold: txIn.output.threshold,
@@ -53,7 +53,7 @@ function parseTxUtxos(txs, ownedAddresses) {
                 chain: chainAlias,
                 isInput: false,
                 isOwner: (0, utxoUtils_1.isOutputOwner)(ownedAddresses, txOut),
-                amount: (0, utils_1.bnToBig)(new avalanche_1.BN(txOut.amount), decimals).toString(),
+                amount: (0, utils_1.bnToBig)(new avalanchejs_1.BN(txOut.amount), decimals).toString(),
                 owners: txOut.addresses || txOut.caddresses || [],
                 locktime: txOut.locktime,
                 threshold: txOut.threshold,

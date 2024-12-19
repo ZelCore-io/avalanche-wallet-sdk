@@ -13,9 +13,9 @@ tslib_1.__exportStar(require("./utils"), exports);
 tslib_1.__exportStar(require("./helpers"), exports);
 tslib_1.__exportStar(require("./UniversalTx"), exports);
 tslib_1.__exportStar(require("./Csv"), exports);
-var avalanche_1 = require("avalanche");
-Object.defineProperty(exports, "BN", { enumerable: true, get: function () { return avalanche_1.BN; } });
-Object.defineProperty(exports, "Buffer", { enumerable: true, get: function () { return avalanche_1.Buffer; } });
+var avalanchejs_1 = require("@avalabs/avalanchejs");
+Object.defineProperty(exports, "BN", { enumerable: true, get: function () { return avalanchejs_1.BN; } });
+Object.defineProperty(exports, "Buffer", { enumerable: true, get: function () { return avalanchejs_1.Buffer; } });
 const big_js_1 = tslib_1.__importDefault(require("big.js"));
 exports.Big = big_js_1.default;
 //# sourceMappingURL=index.js.map

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.canUseCredentials = exports.createExplorerApi = exports.createAvalancheProvider = exports.getNetworkIdFromURL = exports.wsUrlFromConfigEVM = exports.wsUrlFromConfigX = void 0;
-const avalanche_1 = require("avalanche");
+const avalanchejs_1 = require("@avalabs/avalanchejs");
 const http_client_1 = require("./http_client");
 function wsUrlFromConfigX(config) {
     let protocol = config.apiProtocol === 'http' ? 'ws' : 'wss';
@@ -35,7 +35,7 @@ async function getNetworkIdFromURL(url) {
 }
 exports.getNetworkIdFromURL = getNetworkIdFromURL;
 function createAvalancheProvider(config) {
-    return new avalanche_1.Avalanche(config.apiIp, config.apiPort, config.apiProtocol, config.networkID);
+    return new avalanchejs_1.Avalanche(config.apiIp, config.apiPort, config.apiProtocol, config.networkID);
 }
 exports.createAvalancheProvider = createAvalancheProvider;
 /**

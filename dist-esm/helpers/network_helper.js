@@ -1,4 +1,4 @@
-import { Avalanche } from 'avalanche';
+import { Avalanche } from '@avalabs/avalanchejs';
 import { HttpClient } from './http_client';
 export function wsUrlFromConfigX(config) {
     let protocol = config.apiProtocol === 'http' ? 'ws' : 'wss';

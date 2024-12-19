@@ -4,7 +4,7 @@ exports.getTransactionSummary = void 0;
 const history_helpers_1 = require("../History/history_helpers");
 const network_1 = require("../Network/network");
 const utils_1 = require("../utils");
-const avalanche_1 = require("avalanche");
+const avalanchejs_1 = require("@avalabs/avalanchejs");
 const base_tx_parser_1 = require("../History/base_tx_parser");
 const aliasFromNetworkID_1 = require("../Network/helpers/aliasFromNetworkID");
 const importExportParser_1 = require("../History/importExportParser");
@@ -37,7 +37,7 @@ function getUnsupportedSummary(tx) {
         id: tx.id,
         type: 'not_supported',
         timestamp: new Date(tx.timestamp),
-        fee: new avalanche_1.BN(0),
+        fee: new avalanchejs_1.BN(0),
         tx,
     };
 }
@@ -73,7 +73,7 @@ function getStakingSummary(tx, ownerAddrs) {
         stakeEnd: new Date(tx.validatorEnd * 1000),
         timestamp: time,
         type: type,
-        fee: new avalanche_1.BN(0),
+        fee: new avalanchejs_1.BN(0),
         amount: stakeAmount,
         amountDisplayValue: (0, utils_1.bnToAvaxP)(stakeAmount),
         memo: (0, history_helpers_1.parseMemo)(tx.memo),

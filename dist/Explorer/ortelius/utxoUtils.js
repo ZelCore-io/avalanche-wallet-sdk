@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getOutputsAssetIDs = exports.getOutputsAssetOwners = exports.getOutputsOfType = exports.getOutputsOfChain = exports.getRewardOuts = exports.getOutputTotals = exports.getNotOwnedOutputs = exports.getAssetOutputs = exports.getAddresses = exports.getOwnedOutputs = exports.getEvmAssetBalanceFromUTXOs = exports.getAssetBalanceFromUTXOs = exports.isOutputOwnerC = exports.isOutputOwner = exports.isArraysOverlap = exports.filterDuplicateStrings = void 0;
-const avalanche_1 = require("avalanche");
+const avalanchejs_1 = require("@avalabs/avalanchejs");
 const utils_1 = require("../../utils");
 function filterDuplicateStrings(vals) {
     return vals.filter((val, i) => vals.indexOf(val) === i);
@@ -58,8 +58,8 @@ function getAssetBalanceFromUTXOs(utxos, addresses, assetID, chainID, isStake = 
         return false;
     });
     let tot = myOuts.reduce((acc, utxo) => {
-        return acc.add(new avalanche_1.BN(utxo.amount));
-    }, new avalanche_1.BN(0));
+        return acc.add(new avalanchejs_1.BN(utxo.amount));
+    }, new avalanchejs_1.BN(0));
     return tot;
 }
 exports.getAssetBalanceFromUTXOs = getAssetBalanceFromUTXOs;
@@ -82,8 +82,8 @@ function getEvmAssetBalanceFromUTXOs(utxos, address, assetID, chainID, isStake =
         return false;
     });
     let tot = myOuts.reduce((acc, utxo) => {
-        return acc.add(new avalanche_1.BN(utxo.amount));
-    }, new avalanche_1.BN(0));
+        return acc.add(new avalanchejs_1.BN(utxo.amount));
+    }, new avalanchejs_1.BN(0));
     return tot;
 }
 exports.getEvmAssetBalanceFromUTXOs = getEvmAssetBalanceFromUTXOs;
@@ -142,8 +142,8 @@ function getNotOwnedOutputs(outs, myAddrs) {
 exports.getNotOwnedOutputs = getNotOwnedOutputs;
 function getOutputTotals(outs) {
     return outs.reduce((acc, out) => {
-        return acc.add(new avalanche_1.BN(out.amount));
-    }, new avalanche_1.BN(0));
+        return acc.add(new avalanchejs_1.BN(out.amount));
+    }, new avalanchejs_1.BN(0));
 }
 exports.getOutputTotals = getOutputTotals;
 function getRewardOuts(outs) {

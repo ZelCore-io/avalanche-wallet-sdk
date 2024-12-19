@@ -1,4 +1,4 @@
-import { BN } from 'avalanche';
+import { BN } from '@avalabs/avalanchejs';
 import Big from 'big.js';
 Big.prototype.toLocaleString = function (toFixed = 9) {
     let fixedStr = this.toFixed(toFixed, 0);

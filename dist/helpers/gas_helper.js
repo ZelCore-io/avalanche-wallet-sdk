@@ -2,19 +2,19 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.estimateExportGasFee = exports.estimateExportGasFeeFromMockTx = exports.estimateImportGasFeeFromMockTx = exports.calculateMaxFee = exports.getMaxPriorityFee = exports.getBaseFeeRecommended = exports.getBaseFee = exports.adjustValue = exports.getAdjustedGasPrice = exports.getGasPrice = void 0;
 const network_1 = require("../Network/network");
-const avalanche_1 = require("avalanche");
-const evm_1 = require("avalanche/dist/apis/evm");
+const avalanchejs_1 = require("@avalabs/avalanchejs");
+const evm_1 = require("@avalabs/avalanchejs/dist/apis/evm");
 const common_1 = require("../common");
 const Network_1 = require("../Network");
-const utils_1 = require("avalanche/dist/utils");
+const utils_1 = require("@avalabs/avalanchejs/dist/utils");
 const tx_helper_1 = require("../helpers/tx_helper");
-const MAX_GAS = new avalanche_1.BN(1000_000_000_000);
+const MAX_GAS = new avalanchejs_1.BN(1000_000_000_000);
 /**
  * Returns the current gas price in WEI from the network
  */
 async function getGasPrice() {
     const gas = await network_1.web3.eth.getGasPrice();
-    return new avalanche_1.BN(gas.toString());
+    return new avalanchejs_1.BN(gas.toString());
 }
 exports.getGasPrice = getGasPrice;
 /**
@@ -23,7 +23,7 @@ exports.getGasPrice = getGasPrice;
 async function getAdjustedGasPrice() {
     let gasPrice = await getGasPrice();
     let adjustedGas = adjustValue(gasPrice, 25);
-    return avalanche_1.BN.min(adjustedGas, MAX_GAS);
+    return avalanchejs_1.BN.min(adjustedGas, MAX_GAS);
 }
 exports.getAdjustedGasPrice = getAdjustedGasPrice;
 /**
@@ -32,7 +32,7 @@ exports.getAdjustedGasPrice = getAdjustedGasPrice;
  * @param perc What percentage to adjust with
  */
 function adjustValue(val, perc) {
-    let padAmt = val.div(new avalanche_1.BN(100)).mul(new avalanche_1.BN(perc));
+    let padAmt = val.div(new avalanchejs_1.BN(100)).mul(new avalanchejs_1.BN(perc));
     return val.add(padAmt);
 }
 exports.adjustValue = adjustValue;
@@ -41,7 +41,7 @@ exports.adjustValue = adjustValue;
  */
 async function getBaseFee() {
     const rawHex = (await network_1.cChain.getBaseFee()).substring(2);
-    return new avalanche_1.BN(rawHex, 'hex');
+    return new avalanchejs_1.BN(rawHex, 'hex');
 }
 exports.getBaseFee = getBaseFee;
 /**
@@ -57,7 +57,7 @@ exports.getBaseFeeRecommended = getBaseFeeRecommended;
  */
 async function getMaxPriorityFee() {
     const rawHex = (await network_1.cChain.getMaxPriorityFeePerGas()).substring(2);
-    return new avalanche_1.BN(rawHex, 'hex');
+    return new avalanchejs_1.BN(rawHex, 'hex');
 }
 exports.getMaxPriorityFee = getMaxPriorityFee;
 /**
@@ -67,7 +67,7 @@ exports.getMaxPriorityFee = getMaxPriorityFee;
  * @param maxPriorityFee in WEI
  */
 function calculateMaxFee(baseFee, maxPriorityFee) {
-    return baseFee.mul(new avalanche_1.BN(2)).add(maxPriorityFee);
+    return baseFee.mul(new avalanchejs_1.BN(2)).add(maxPriorityFee);
 }
 exports.calculateMaxFee = calculateMaxFee;
 /**
@@ -124,7 +124,7 @@ exports.estimateExportGasFeeFromMockTx = estimateExportGasFeeFromMockTx;
  * @param to The destination address on the destination chain
  */
 async function estimateExportGasFee(destinationChain, from, fromBech, to, amount) {
-    let exportTx = await (0, tx_helper_1.buildEvmExportTransaction)([from], to, amount, fromBech, destinationChain, new avalanche_1.BN(0));
+    let exportTx = await (0, tx_helper_1.buildEvmExportTransaction)([from], to, amount, fromBech, destinationChain, new avalanchejs_1.BN(0));
     return (0, utils_1.costExportTx)(exportTx);
 }
 exports.estimateExportGasFee = estimateExportGasFee;

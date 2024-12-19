@@ -1,6 +1,6 @@
-import { Buffer as BufferAvalanche } from 'avalanche';
+import { Buffer as BufferAvalanche } from '@avalabs/avalanchejs';
 import { avalanche } from '../../Network/network';
-import { KeyChain as EVMKeyChain, } from 'avalanche/dist/apis/evm';
+import { KeyChain as EVMKeyChain, } from '@avalabs/avalanchejs/dist/apis/evm';
 import { EvmWalletReadonly } from '../../Wallet/EVM/EvmWalletReadonly';
 import { bintools } from '../../common';
 import { computePublicKey } from 'ethers/lib/utils';

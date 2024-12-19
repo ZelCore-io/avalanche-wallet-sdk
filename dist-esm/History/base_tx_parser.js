@@ -1,7 +1,7 @@
 import * as Assets from '../Asset/Assets';
 import { bnToLocaleString, getTxFeeX } from '../utils';
-import { AVMConstants } from 'avalanche/dist/apis/avm';
-import { BN } from 'avalanche';
+import { AVMConstants } from '@avalabs/avalanchejs/dist/apis/avm';
+import { BN } from '@avalabs/avalanchejs';
 import { getNFTBalanceFromUTXOs, parseMemo } from '../History/history_helpers';
 import { filterDuplicateStrings, getAssetOutputs, getNotOwnedOutputs, getOutputsAssetIDs, getOutputsAssetOwners, getOutputsOfType, getOutputTotals, getOwnedOutputs, } from '../Explorer/ortelius/utxoUtils';
 import { getAvaxAssetID } from '../Network/utils';

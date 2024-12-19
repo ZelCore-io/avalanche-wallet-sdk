@@ -1,19 +1,19 @@
 /// <reference types="node" />
 /// <reference types="bn.js" />
 import { AssetBalanceP, AssetBalanceRawX, BTCNetworkType, ERC20Balance, ExportChainsC, ExportChainsP, ExportChainsX, iAvaxBalance, WalletBalanceX, WalletEventArgsType, WalletEventType, WalletNameType } from './types';
-import { BN } from 'avalanche';
+import { BN } from '@avalabs/avalanchejs';
 import { TypedTransaction } from '@ethereumjs/tx';
 import { EvmWallet } from '../Wallet/EVM/EvmWallet';
-import { UTXOSet as AVMUTXOSet, UnsignedTx as AVMUnsignedTx, UTXO as AVMUTXO, Tx as AvmTx } from 'avalanche/dist/apis/avm';
-import { UTXOSet as PlatformUTXOSet, UTXO as PlatformUTXO, UnsignedTx as PlatformUnsignedTx, Tx as PlatformTx } from 'avalanche/dist/apis/platformvm';
-import { UnsignedTx as EVMUnsignedTx, Tx as EVMTx, UTXOSet as EVMUTXOSet } from 'avalanche/dist/apis/evm';
-import { PayloadBase } from 'avalanche/dist/utils';
+import { UTXOSet as AVMUTXOSet, UnsignedTx as AVMUnsignedTx, UTXO as AVMUTXO, Tx as AvmTx } from '@avalabs/avalanchejs/dist/apis/avm';
+import { UTXOSet as PlatformUTXOSet, UTXO as PlatformUTXO, UnsignedTx as PlatformUnsignedTx, Tx as PlatformTx } from '@avalabs/avalanchejs/dist/apis/platformvm';
+import { UnsignedTx as EVMUnsignedTx, Tx as EVMTx, UTXOSet as EVMUTXOSet } from '@avalabs/avalanchejs/dist/apis/evm';
+import { PayloadBase } from '@avalabs/avalanchejs/dist/utils';
 import { EvmWalletReadonly } from '../Wallet/EVM/EvmWalletReadonly';
 import EventEmitter from 'events';
 import { HistoryItemType } from '../History';
 import { ChainIdType } from '../common';
 import { UniversalTx } from '../UniversalTx';
-import { GetStakeResponse } from 'avalanche/dist/apis/platformvm/interfaces';
+import { GetStakeResponse } from '@avalabs/avalanchejs/dist/apis/platformvm/interfaces';
 import { NetworkConfig } from '../Network';
 import { OrteliusAvalancheTx } from '../Explorer';
 import { TypedDataV1, TypedMessage } from '@metamask/eth-sig-util';

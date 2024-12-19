@@ -5,7 +5,7 @@ const tslib_1 = require("tslib");
 const network_1 = require("../Network/network");
 const ERC20_json_1 = tslib_1.__importDefault(require("./ERC20.json"));
 const errors_1 = require("../errors");
-const avalanche_1 = require("avalanche");
+const avalanchejs_1 = require("@avalabs/avalanchejs");
 const xss_1 = tslib_1.__importDefault(require("xss"));
 class Erc20Token {
     contract;
@@ -54,9 +54,9 @@ class Erc20Token {
     async balanceOf(address) {
         let bal = await this.contract.methods.balanceOf(address).call();
         if (typeof bal === 'string') {
-            return new avalanche_1.BN(bal);
+            return new avalanchejs_1.BN(bal);
         }
-        return new avalanche_1.BN(0);
+        return new avalanchejs_1.BN(0);
     }
 }
 exports.Erc20Token = Erc20Token;

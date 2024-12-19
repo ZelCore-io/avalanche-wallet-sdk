@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parseNftPayload = exports.digestMessage = exports.isValidAddress = void 0;
 const tslib_1 = require("tslib");
-const avalanche_1 = require("avalanche");
+const avalanchejs_1 = require("@avalabs/avalanchejs");
 const address_helper_1 = require("../helpers/address_helper");
 const create_hash_1 = tslib_1.__importDefault(require("create-hash"));
-const utils_1 = require("avalanche/dist/utils");
+const utils_1 = require("@avalabs/avalanchejs/dist/utils");
 /**
  * Checks if address is valid.
  *
@@ -26,8 +26,8 @@ function digestMessage(msgStr) {
 exports.digestMessage = digestMessage;
 let payloadtypes = utils_1.PayloadTypes.getInstance();
 function parseNftPayload(rawPayload) {
-    let payload = avalanche_1.Buffer.from(rawPayload, 'base64');
-    payload = avalanche_1.Buffer.concat([new avalanche_1.Buffer(4).fill(payload.length), payload]);
+    let payload = avalanchejs_1.Buffer.from(rawPayload, 'base64');
+    payload = avalanchejs_1.Buffer.concat([new avalanchejs_1.Buffer(4).fill(payload.length), payload]);
     let typeId = payloadtypes.getTypeID(payload);
     let pl = payloadtypes.getContent(payload);
     let payloadbase = payloadtypes.select(typeId, pl);

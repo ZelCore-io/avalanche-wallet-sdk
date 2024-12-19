@@ -1,4 +1,4 @@
-import { Defaults } from 'avalanche/dist/utils';
+import { Defaults } from '@avalabs/avalanchejs/dist/utils';
 import { getRpcC, getRpcP, getRpcX } from './helpers/rpcFromConfig';
 export const MainnetConfig = {
     rawUrl: 'https://api.avax.network',

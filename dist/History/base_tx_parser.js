@@ -4,8 +4,8 @@ exports.getBaseTxSummary = void 0;
 const tslib_1 = require("tslib");
 const Assets = tslib_1.__importStar(require("../Asset/Assets"));
 const utils_1 = require("../utils");
-const avm_1 = require("avalanche/dist/apis/avm");
-const avalanche_1 = require("avalanche");
+const avm_1 = require("@avalabs/avalanchejs/dist/apis/avm");
+const avalanchejs_1 = require("@avalabs/avalanchejs");
 const history_helpers_1 = require("../History/history_helpers");
 const utxoUtils_1 = require("../Explorer/ortelius/utxoUtils");
 const utils_2 = require("../Network/utils");
@@ -96,8 +96,8 @@ async function getBaseTxTokensSummary(gains, losses, froms, tos) {
     }
     for (let i = 0; i < assetIDs.length; i++) {
         let id = assetIDs[i];
-        let tokenGain = gains[id] || new avalanche_1.BN(0);
-        let tokenLost = losses[id] || new avalanche_1.BN(0);
+        let tokenGain = gains[id] || new avalanchejs_1.BN(0);
+        let tokenLost = losses[id] || new avalanchejs_1.BN(0);
         let tokenDesc = descsDict[id];
         // If we sent avax, deduct the fee
         if (id === (0, utils_2.getAvaxAssetID)() && !tokenLost.isZero()) {

@@ -1,6 +1,6 @@
 /// <reference types="bn.js" />
-import { KeyPair as AVMKeyPair } from 'avalanche/dist/apis/avm';
-import { BN } from 'avalanche';
+import { KeyPair as AVMKeyPair } from '@avalabs/avalanchejs/dist/apis/avm';
+import { BN } from '@avalabs/avalanchejs';
 import { SingletonWallet } from '../Wallet/SingletonWallet';
 import { iAssetDescriptionClean } from '../Asset/types';
 export interface IIndexKeyCache {

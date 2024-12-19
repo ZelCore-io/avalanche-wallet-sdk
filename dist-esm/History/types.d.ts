@@ -1,5 +1,5 @@
 /// <reference types="bn.js" />
-import { BN } from 'avalanche';
+import { BN } from '@avalabs/avalanchejs';
 import { ChainIdType } from '../common';
 import { iAssetDescriptionClean } from '../Asset/types';
 import { OrteliusAvalancheTx, OrteliusEvmTx } from '../Explorer';

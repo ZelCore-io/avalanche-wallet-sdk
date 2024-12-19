@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UniversalNodeAbstract = void 0;
-const avalanche_1 = require("avalanche");
+const avalanchejs_1 = require("@avalabs/avalanchejs");
 class UniversalNodeAbstract {
     parents;
     child; // can only have 1 child
@@ -28,12 +28,12 @@ class UniversalNodeAbstract {
             // import + export
             let parentBalance = node.reduceTotalBalanceFromParents();
             parentBalance = parentBalance.sub(this.feeImport).sub(node.feeExport);
-            let zero = new avalanche_1.BN(0);
-            return avalanche_1.BN.max(parentBalance, zero);
+            let zero = new avalanchejs_1.BN(0);
+            return avalanchejs_1.BN.max(parentBalance, zero);
         });
         let tot = parentBals.reduce((prev, current) => {
             return prev.add(current);
-        }, new avalanche_1.BN(0));
+        }, new avalanchejs_1.BN(0));
         return tot.add(this.balance);
     }
     buildExportTx(destChain, amount) {
@@ -58,7 +58,7 @@ class UniversalNodeAbstract {
     getStepsForTargetBalance(target) {
         // If the node has enough balance no transaction needed
         // If target is negative or zero no transaction needed
-        if (this.balance.gte(target) || target.lte(new avalanche_1.BN(0))) {
+        if (this.balance.gte(target) || target.lte(new avalanchejs_1.BN(0))) {
             return [];
         }
         // If not enough balance and no parents
@@ -72,7 +72,7 @@ class UniversalNodeAbstract {
         let transactions = [];
         for (let i = 0; i < this.parents.length; i++) {
             let p = this.parents[i];
-            if (remaining.lte(new avalanche_1.BN(0)))
+            if (remaining.lte(new avalanchejs_1.BN(0)))
                 break;
             // Parent's balance
             let pBal = p.reduceTotalBalanceFromParents();
@@ -84,10 +84,10 @@ class UniversalNodeAbstract {
             // The parent needs to have this balance to satisfy the needed amount
             // Try to export the remaining amount, if the parent balance is lower than that export the maximum amount
             // Import amount is the usable amount imported
-            const importAmt = avalanche_1.BN.min(pBalMax, remaining); // The amount that will cross to the target chain
+            const importAmt = avalanchejs_1.BN.min(pBalMax, remaining); // The amount that will cross to the target chain
             // Exported amount should include the import fees
             const exportAmt = importAmt.add(importFee);
-            if (exportAmt.lte(new avalanche_1.BN(0)))
+            if (exportAmt.lte(new avalanchejs_1.BN(0)))
                 continue;
             let pTx = p.buildExportTx(this.chain, exportAmt);
             let importTx = this.buildImportTx(p.chain);
@@ -96,7 +96,7 @@ class UniversalNodeAbstract {
             remaining = remaining.sub(importAmt);
         }
         // If we still have remaining balance, we can not complete this transfer
-        if (remaining.gt(new avalanche_1.BN(0))) {
+        if (remaining.gt(new avalanchejs_1.BN(0))) {
             throw new Error('Insufficient AVAX balances.');
         }
         return transactions;

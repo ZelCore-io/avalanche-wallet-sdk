@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EvmWallet = void 0;
 const tslib_1 = require("tslib");
-const avalanche_1 = require("avalanche");
+const avalanchejs_1 = require("@avalabs/avalanchejs");
 const network_1 = require("../../Network/network");
-const evm_1 = require("avalanche/dist/apis/evm");
+const evm_1 = require("@avalabs/avalanchejs/dist/apis/evm");
 const EvmWalletReadonly_1 = require("../../Wallet/EVM/EvmWalletReadonly");
 const common_1 = require("../../common");
 const utils_1 = require("ethers/lib/utils");
@@ -24,7 +24,7 @@ class EvmWallet extends EvmWalletReadonly_1.EvmWalletReadonly {
         return new EvmWallet(Buffer.from(key, 'hex'));
     }
     getPrivateKeyBech() {
-        return `PrivateKey-` + common_1.bintools.cb58Encode(avalanche_1.Buffer.from(this.privateKey));
+        return `PrivateKey-` + common_1.bintools.cb58Encode(avalanchejs_1.Buffer.from(this.privateKey));
     }
     getKeyChain() {
         let keychain = new evm_1.KeyChain(network_1.avalanche.getHRP(), 'C');

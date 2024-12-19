@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.bigToBN = exports.stringToBN = exports.bigToLocaleString = exports.bnToLocaleString = exports.numberToBNAvaxC = exports.numberToBNAvaxP = exports.numberToBNAvaxX = exports.numberToBN = exports.bnToAvaxP = exports.bnToAvaxX = exports.bnToAvaxC = exports.bnToBigAvaxC = exports.bnToBigAvaxP = exports.bnToBigAvaxX = exports.avaxPtoC = exports.avaxXtoC = exports.avaxCtoX = exports.bnToBig = void 0;
 const tslib_1 = require("tslib");
-const avalanche_1 = require("avalanche");
+const avalanchejs_1 = require("@avalabs/avalanchejs");
 const big_js_1 = tslib_1.__importDefault(require("big.js"));
 big_js_1.default.prototype.toLocaleString = function (toFixed = 9) {
     let fixedStr = this.toFixed(toFixed, 0);
@@ -40,12 +40,12 @@ exports.bnToBig = bnToBig;
  * @param amount
  */
 function avaxCtoX(amount) {
-    let tens = new avalanche_1.BN(10).pow(new avalanche_1.BN(9));
+    let tens = new avalanchejs_1.BN(10).pow(new avalanchejs_1.BN(9));
     return amount.div(tens);
 }
 exports.avaxCtoX = avaxCtoX;
 function avaxXtoC(amount) {
-    let tens = new avalanche_1.BN(10).pow(new avalanche_1.BN(9));
+    let tens = new avalanchejs_1.BN(10).pow(new avalanchejs_1.BN(9));
     return amount.mul(tens);
 }
 exports.avaxXtoC = avaxXtoC;
@@ -107,7 +107,7 @@ exports.bnToAvaxP = bnToAvaxP;
 function numberToBN(val, decimals) {
     let valBig = (0, big_js_1.default)(val);
     let tens = (0, big_js_1.default)(10).pow(decimals);
-    let valBN = new avalanche_1.BN(valBig.times(tens).toFixed(0));
+    let valBN = new avalanchejs_1.BN(valBig.times(tens).toFixed(0));
     return valBN;
 }
 exports.numberToBN = numberToBN;
@@ -178,7 +178,7 @@ function stringToBN(value, decimals) {
     let tens = (0, big_js_1.default)(10).pow(decimals);
     let mult = big.times(tens);
     let rawStr = mult.toFixed(0, 0);
-    return new avalanche_1.BN(rawStr);
+    return new avalanchejs_1.BN(rawStr);
 }
 exports.stringToBN = stringToBN;
 function bigToBN(val, denom) {
@@ -187,7 +187,7 @@ function bigToBN(val, denom) {
         throw new Error('Denomination can not be less that 0.');
     const bnBig = val.mul((0, big_js_1.default)(10).pow(denomFlr));
     const bnStr = bnBig.toFixed(0, 0);
-    return new avalanche_1.BN(bnStr);
+    return new avalanchejs_1.BN(bnStr);
 }
 exports.bigToBN = bigToBN;
 //# sourceMappingURL=number_utils.js.map

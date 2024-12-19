@@ -1,4 +1,4 @@
-import { BN } from 'avalanche';
+import { BN } from '@avalabs/avalanchejs';
 export class UniversalNodeAbstract {
     parents;
     child; // can only have 1 child

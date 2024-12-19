@@ -1,16 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EvmWalletReadonly = void 0;
-const avalanche_1 = require("avalanche");
+const avalanchejs_1 = require("@avalabs/avalanchejs");
 const network_1 = require("../../Network/network");
 const ethers_1 = require("ethers");
-const keychain_1 = require("avalanche/dist/apis/evm/keychain");
+const keychain_1 = require("@avalabs/avalanchejs/dist/apis/evm/keychain");
 const common_1 = require("../../common");
 const utils_1 = require("ethers/lib/utils");
 const bitcoinjs_lib_1 = require("bitcoinjs-lib");
 const tx_helper_1 = require("../../helpers/tx_helper");
 class EvmWalletReadonly {
-    balance = new avalanche_1.BN(0);
+    balance = new avalanchejs_1.BN(0);
     address;
     publicKey;
     publicKeyBuff;
@@ -34,7 +34,7 @@ class EvmWalletReadonly {
     }
     getAddressBech32() {
         const compressedKey = this.getCompressedPublicKey();
-        let addr = keychain_1.KeyPair.addressFromPublicKey(avalanche_1.Buffer.from(compressedKey.substring(2), 'hex'));
+        let addr = keychain_1.KeyPair.addressFromPublicKey(avalanchejs_1.Buffer.from(compressedKey.substring(2), 'hex'));
         return common_1.bintools.addressToString(network_1.avalanche.getHRP(), 'C', addr);
     }
     /**
@@ -61,7 +61,7 @@ class EvmWalletReadonly {
     }
     async updateBalance() {
         let bal = await network_1.web3.eth.getBalance(this.address);
-        this.balance = new avalanche_1.BN(bal.toString());
+        this.balance = new avalanchejs_1.BN(bal.toString());
         return this.balance;
     }
     /**

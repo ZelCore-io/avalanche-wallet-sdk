@@ -1,5 +1,5 @@
 import Sockette from 'sockette';
-import { PubSub } from 'avalanche';
+import { PubSub } from '@avalabs/avalanchejs';
 const FILTER_ADDRESS_SIZE = 1000;
 export class AVMWebSocketProvider {
     isConnected = false;

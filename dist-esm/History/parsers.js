@@ -1,7 +1,7 @@
 import { parseMemo } from '../History/history_helpers';
 import { activeNetwork, xChain } from '../Network/network';
 import { bnToAvaxP, bnToAvaxX } from '../utils';
-import { BN } from 'avalanche';
+import { BN } from '@avalabs/avalanchejs';
 import { getBaseTxSummary } from '../History/base_tx_parser';
 import { idToChainAlias } from '../Network/helpers/aliasFromNetworkID';
 import { getExportSummary, getImportSummary } from '../History/importExportParser';

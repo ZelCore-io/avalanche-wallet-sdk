@@ -1,7 +1,7 @@
 /// <reference types="bn.js" />
 /// <reference types="node" />
 /// <reference types="node" />
-import { BN } from 'avalanche';
+import { BN } from '@avalabs/avalanchejs';
 import { BTCNetworkType } from '../../Wallet';
 export declare class EvmWalletReadonly {
     balance: BN;

@@ -1,6 +1,6 @@
 /// <reference types="bn.js" />
 import { OrteliusAvalancheTx } from '../../Explorer';
-import { BN } from 'avalanche';
+import { BN } from '@avalabs/avalanchejs';
 /**
  * Given an array of transactions from the explorer, filter out duplicate transactions
  * @param txs

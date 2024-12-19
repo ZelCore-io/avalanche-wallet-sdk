@@ -1,4 +1,4 @@
-import { AVMConstants } from 'avalanche/dist/apis/avm';
+import { AVMConstants } from '@avalabs/avalanchejs/dist/apis/avm';
 import { parseNftPayload } from '../utils';
 import { isOutputOwner } from '../Explorer/ortelius/utxoUtils';
 /**

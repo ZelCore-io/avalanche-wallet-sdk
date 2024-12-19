@@ -1,5 +1,5 @@
 import { bnToAvaxC } from '../utils';
-import { BN } from 'avalanche';
+import { BN } from '@avalabs/avalanchejs';
 export function getTransactionSummaryEVM(tx, walletAddress) {
     let isSender = tx.fromAddr.toUpperCase() === walletAddress.toUpperCase();
     let amt = new BN(tx.value);

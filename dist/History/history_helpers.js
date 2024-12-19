@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getNFTBalanceFromUTXOs = exports.parseMemo = void 0;
-const avm_1 = require("avalanche/dist/apis/avm");
+const avm_1 = require("@avalabs/avalanchejs/dist/apis/avm");
 const utils_1 = require("../utils");
 const utxoUtils_1 = require("../Explorer/ortelius/utxoUtils");
 /**

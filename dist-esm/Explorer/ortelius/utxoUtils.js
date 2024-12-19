@@ -1,4 +1,4 @@
-import { BN } from 'avalanche';
+import { BN } from '@avalabs/avalanchejs';
 import { strip0x } from '../../utils';
 export function filterDuplicateStrings(vals) {
     return vals.filter((val, i) => vals.indexOf(val) === i);

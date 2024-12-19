@@ -1,7 +1,7 @@
 /// <reference types="bn.js" />
 import ERC20Abi from './ERC20.json';
 import { Erc20TokenData } from '../Asset/types';
-import { BN } from 'avalanche';
+import { BN } from '@avalabs/avalanchejs';
 import { Contract } from 'web3-eth-contract';
 export declare class Erc20Token {
     contract: Contract<typeof ERC20Abi.abi>;

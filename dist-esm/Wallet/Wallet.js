@@ -1,10 +1,10 @@
 import { buildAvmExportTransaction, buildCreateNftFamilyTx, buildCustomEvmTx, buildEvmExportTransaction, buildEvmTransferErc20Tx, buildEvmTransferErc721Tx, buildEvmTransferNativeTx, buildMintNftTx, buildPlatformExportTransaction, estimateAvaxGas, estimateErc20Gas, } from '../helpers/tx_helper';
-import { BN, Buffer } from 'avalanche';
+import { BN, Buffer } from '@avalabs/avalanchejs';
 import { activeNetwork, avalanche, cChain, pChain, web3, xChain } from '../Network/network';
 import { avmGetAllUTXOs, avmGetAtomicUTXOs, evmGetAtomicUTXOs, getStakeForAddresses, platformGetAllUTXOs, platformGetAtomicUTXOs, } from '../helpers/utxo_helper';
-import { UTXOSet as AVMUTXOSet, AVMConstants, } from 'avalanche/dist/apis/avm';
-import { UTXOSet as PlatformUTXOSet, PlatformVMConstants, } from 'avalanche/dist/apis/platformvm';
-import { UnixNow } from 'avalanche/dist/utils';
+import { UTXOSet as AVMUTXOSet, AVMConstants, } from '@avalabs/avalanchejs/dist/apis/avm';
+import { UTXOSet as PlatformUTXOSet, PlatformVMConstants, } from '@avalabs/avalanchejs/dist/apis/platformvm';
+import { UnixNow } from '@avalabs/avalanchejs/dist/utils';
 import { getAssetDescription } from '../Asset/Assets';
 import { getErc20Token } from '../Asset/Erc20';
 import { NO_NETWORK } from '../errors';

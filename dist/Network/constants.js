@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DefaultConfig = exports.LocalnetConfig = exports.TestnetConfig = exports.MainnetConfig = void 0;
-const utils_1 = require("avalanche/dist/utils");
+const utils_1 = require("@avalabs/avalanchejs/dist/utils");
 const rpcFromConfig_1 = require("./helpers/rpcFromConfig");
 exports.MainnetConfig = {
     rawUrl: 'https://api.avax.network',

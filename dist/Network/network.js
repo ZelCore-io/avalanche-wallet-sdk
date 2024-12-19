@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getConfigFromUrl = exports.setRpcNetwork = exports.setRpcNetworkAsync = exports.getEvmChainID = exports.activeNetwork = exports.explorer_api = exports.ethersProvider = exports.web3 = exports.infoApi = exports.pChain = exports.cChain = exports.xChain = exports.avalanche = void 0;
 const tslib_1 = require("tslib");
-const dist_1 = require("avalanche/dist");
+const dist_1 = require("@avalabs/avalanchejs/dist");
 const web3_1 = tslib_1.__importDefault(require("web3"));
 const constants_1 = require("./constants");
 const rpcFromConfig_1 = require("./helpers/rpcFromConfig");

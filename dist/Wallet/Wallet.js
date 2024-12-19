@@ -3,12 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.WalletProvider = void 0;
 const tslib_1 = require("tslib");
 const tx_helper_1 = require("../helpers/tx_helper");
-const avalanche_1 = require("avalanche");
+const avalanchejs_1 = require("@avalabs/avalanchejs");
 const network_1 = require("../Network/network");
 const utxo_helper_1 = require("../helpers/utxo_helper");
-const avm_1 = require("avalanche/dist/apis/avm");
-const platformvm_1 = require("avalanche/dist/apis/platformvm");
-const utils_1 = require("avalanche/dist/utils");
+const avm_1 = require("@avalabs/avalanchejs/dist/apis/avm");
+const platformvm_1 = require("@avalabs/avalanchejs/dist/apis/platformvm");
+const utils_1 = require("@avalabs/avalanchejs/dist/utils");
 const Assets_1 = require("../Asset/Assets");
 const Erc20_1 = require("../Asset/Erc20");
 const errors_1 = require("../errors");
@@ -107,7 +107,7 @@ class WalletProvider {
     async sendAvaxX(to, amount, memo) {
         if (!network_1.activeNetwork)
             throw errors_1.NO_NETWORK;
-        let memoBuff = memo ? avalanche_1.Buffer.from(memo) : undefined;
+        let memoBuff = memo ? avalanchejs_1.Buffer.from(memo) : undefined;
         let froms = await this.getAllAddressesX();
         let changeAddress = this.getChangeAddressX();
         let utxoSet = this.utxosX;
@@ -307,7 +307,7 @@ class WalletProvider {
      */
     async issueEvmTx(tx) {
         let signedTx = await this.signEvm(tx);
-        let txHex = avalanche_1.Buffer.from(signedTx.serialize()).toString('hex');
+        let txHex = avalanchejs_1.Buffer.from(signedTx.serialize()).toString('hex');
         let hash = await network_1.web3.eth.sendSignedTransaction('0x' + txHex);
         const txHash = network_1.web3.utils.bytesToHex(hash.transactionHash);
         return await (0, utils_2.waitTxEvm)(txHash);
@@ -430,9 +430,9 @@ class WalletProvider {
             if (!asset) {
                 let assetInfo = await (0, Assets_1.getAssetDescription)(assetId);
                 asset = {
-                    locked: new avalanche_1.BN(0),
-                    unlocked: new avalanche_1.BN(0),
-                    multisig: new avalanche_1.BN(0),
+                    locked: new avalanchejs_1.BN(0),
+                    unlocked: new avalanchejs_1.BN(0),
+                    multisig: new avalanchejs_1.BN(0),
                     meta: assetInfo,
                 };
             }
@@ -455,9 +455,9 @@ class WalletProvider {
         if (!res[avaxID]) {
             let assetInfo = await (0, Assets_1.getAssetDescription)(avaxID);
             res[avaxID] = {
-                locked: new avalanche_1.BN(0),
-                unlocked: new avalanche_1.BN(0),
-                multisig: new avalanche_1.BN(0),
+                locked: new avalanchejs_1.BN(0),
+                unlocked: new avalanchejs_1.BN(0),
+                multisig: new avalanchejs_1.BN(0),
                 meta: assetInfo,
             };
         }
@@ -493,8 +493,8 @@ class WalletProvider {
             throw new Error('Network not selected.');
         }
         return (this.balanceX[network_1.activeNetwork.avaxID] || {
-            unlocked: new avalanche_1.BN(0),
-            locked: new avalanche_1.BN(0),
+            unlocked: new avalanchejs_1.BN(0),
+            locked: new avalanchejs_1.BN(0),
         });
     }
     getAvaxBalanceC() {
@@ -506,10 +506,10 @@ class WalletProvider {
      * - Does not refresh wallet balance.
      */
     getAvaxBalanceP() {
-        let unlocked = new avalanche_1.BN(0);
-        let locked = new avalanche_1.BN(0);
-        let lockedStakeable = new avalanche_1.BN(0);
-        let multisig = new avalanche_1.BN(0);
+        let unlocked = new avalanchejs_1.BN(0);
+        let locked = new avalanchejs_1.BN(0);
+        let lockedStakeable = new avalanchejs_1.BN(0);
+        let multisig = new avalanchejs_1.BN(0);
         let utxos = this.utxosP.getAllUTXOs();
         let unixNow = (0, utils_1.UnixNow)();
         for (let i = 0; i < utxos.length; i++) {
@@ -579,9 +579,9 @@ class WalletProvider {
         let destinationAddr = destinationChain === 'X' ? this.getAddressX() : this.getAddressP();
         const hexAddr = this.getAddressC();
         // The amount does not effect the fee that much
-        const amt = new avalanche_1.BN(0);
+        const amt = new avalanchejs_1.BN(0);
         const gas = (0, gas_helper_1.estimateExportGasFeeFromMockTx)(destinationChain, amt, hexAddr, destinationAddr);
-        return (0, utils_2.avaxCtoX)(baseFee.mul(new avalanche_1.BN(gas)));
+        return (0, utils_2.avaxCtoX)(baseFee.mul(new avalanchejs_1.BN(gas)));
     }
     /**
      * Exports AVAX from C chain to X chain
@@ -602,7 +602,7 @@ class WalletProvider {
         if (!exportFee) {
             const gas = (0, gas_helper_1.estimateExportGasFeeFromMockTx)(destinationChain, amt, hexAddr, destinationAddr);
             const baseFee = await (0, gas_helper_1.getBaseFeeRecommended)();
-            exportFee = (0, utils_2.avaxCtoX)(baseFee.mul(new avalanche_1.BN(gas)));
+            exportFee = (0, utils_2.avaxCtoX)(baseFee.mul(new avalanchejs_1.BN(gas)));
         }
         let exportTx = await (0, tx_helper_1.buildEvmExportTransaction)(fromAddresses, destinationAddr, amt, bechAddr, destinationChain, exportFee);
         let tx = await this.signC(exportTx);
@@ -747,7 +747,7 @@ class WalletProvider {
             const numIns = utxos.length;
             const importGas = (0, gas_helper_1.estimateImportGasFeeFromMockTx)(numIns, numSigs);
             const baseFee = await (0, gas_helper_1.getBaseFeeRecommended)();
-            fee = (0, utils_2.avaxCtoX)(baseFee.mul(new avalanche_1.BN(importGas)));
+            fee = (0, utils_2.avaxCtoX)(baseFee.mul(new avalanchejs_1.BN(importGas)));
         }
         const unsignedTx = await network_1.cChain.buildImportTx(utxoSet, toAddress, ownerAddresses, sourceChainId, fromAddresses, fee);
         let tx = await this.signC(unsignedTx);
@@ -806,8 +806,8 @@ class WalletProvider {
         let changeAddress = this.getAddressP();
         let stakeReturnAddr = this.getAddressP();
         // Convert dates to unix time
-        let startTime = new avalanche_1.BN(Math.round(start.getTime() / 1000));
-        let endTime = new avalanche_1.BN(Math.round(end.getTime() / 1000));
+        let startTime = new avalanchejs_1.BN(Math.round(start.getTime() / 1000));
+        let endTime = new avalanchejs_1.BN(Math.round(end.getTime() / 1000));
         const unsignedTx = await network_1.pChain.buildAddValidatorTx(utxoSet, [stakeReturnAddr], pAddressStrings, // from
         [changeAddress], // change
         nodeID, startTime, endTime, stakeAmount, [rewardAddress], delegationFee);
@@ -834,8 +834,8 @@ class WalletProvider {
         // For change address use the current platform chain
         let changeAddress = this.getAddressP();
         // Convert dates to unix time
-        let startTime = new avalanche_1.BN(Math.round(start.getTime() / 1000));
-        let endTime = new avalanche_1.BN(Math.round(end.getTime() / 1000));
+        let startTime = new avalanchejs_1.BN(Math.round(start.getTime() / 1000));
+        let endTime = new avalanchejs_1.BN(Math.round(end.getTime() / 1000));
         const unsignedTx = await network_1.pChain.buildAddDelegatorTx(utxoSet, [stakeReturnAddr], pAddressStrings, [changeAddress], nodeID, startTime, endTime, stakeAmount, [rewardAddress] // reward address
         );
         const tx = await this.signP(unsignedTx);

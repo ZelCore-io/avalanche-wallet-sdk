@@ -74,7 +74,6 @@
         "@ethereumjs/common": "~4.4.0",
         "@ethereumjs/tx": "~5.4.0",
         "@metamask/eth-sig-util": "~8.1.1",
-        "avalanche": "~3.16.0",
         "big.js": "^6.1.1",
         "bip32": "~4.0.0",
         "bip32-path": "~0.4.2",

@@ -1,6 +1,6 @@
 /// <reference types="node" />
 /// <reference types="node" />
-import { PayloadBase } from 'avalanche/dist/utils';
+import { PayloadBase } from '@avalabs/avalanchejs/dist/utils';
 /**
  * Checks if address is valid.
  *

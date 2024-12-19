@@ -7,7 +7,7 @@ const Crypto_1 = tslib_1.__importDefault(require("./Crypto"));
 // import { keyToKeypair } from '../helpers/helper'
 const bip39 = tslib_1.__importStar(require("bip39"));
 const common_1 = require("../common");
-const avalanche_1 = require("avalanche");
+const avalanchejs_1 = require("@avalabs/avalanchejs");
 const constants_1 = require("../Keystore/constants");
 const cryptoHelpers = new Crypto_1.default();
 async function readV2(data, pass) {
@@ -17,7 +17,7 @@ async function readV2(data, pass) {
     let pass_hash = data.pass_hash;
     let checkHashString;
     let checkHash = await cryptoHelpers._pwcleaner(pass, salt);
-    checkHashString = common_1.bintools.cb58Encode(avalanche_1.Buffer.from(checkHash));
+    checkHashString = common_1.bintools.cb58Encode(avalanchejs_1.Buffer.from(checkHash));
     if (checkHashString !== pass_hash) {
         throw 'INVALID_PASS';
     }
@@ -28,7 +28,7 @@ async function readV2(data, pass) {
         let key = common_1.bintools.cb58Decode(key_data.key);
         let nonce = common_1.bintools.cb58Decode(key_data.iv);
         let key_decrypt = await cryptoHelpers.decrypt(pass, key, salt, nonce);
-        let key_string = common_1.bintools.cb58Encode(avalanche_1.Buffer.from(key_decrypt));
+        let key_string = common_1.bintools.cb58Encode(avalanchejs_1.Buffer.from(key_decrypt));
         keysDecrypt.push({
             key: key_string,
         });
@@ -47,7 +47,7 @@ async function readV3(data, pass) {
     let pass_hash = data.pass_hash;
     let checkHashString;
     let checkHash = await cryptoHelpers.pwhash(pass, salt);
-    checkHashString = common_1.bintools.cb58Encode(avalanche_1.Buffer.from(checkHash.hash));
+    checkHashString = common_1.bintools.cb58Encode(avalanchejs_1.Buffer.from(checkHash.hash));
     if (checkHashString !== pass_hash) {
         throw 'INVALID_PASS';
     }
@@ -58,7 +58,7 @@ async function readV3(data, pass) {
         let key = common_1.bintools.cb58Decode(key_data.key);
         let nonce = common_1.bintools.cb58Decode(key_data.iv);
         let key_decrypt = await cryptoHelpers.decrypt(pass, key, salt, nonce);
-        let key_string = common_1.bintools.cb58Encode(avalanche_1.Buffer.from(key_decrypt));
+        let key_string = common_1.bintools.cb58Encode(avalanchejs_1.Buffer.from(key_decrypt));
         keysDecrypt.push({
             key: key_string,
         });
@@ -77,7 +77,7 @@ async function readV4(data, pass) {
     let pass_hash = data.pass_hash;
     let checkHashString;
     let checkHash = await cryptoHelpers.pwhash(pass, salt);
-    checkHashString = common_1.bintools.cb58Encode(avalanche_1.Buffer.from(checkHash.hash));
+    checkHashString = common_1.bintools.cb58Encode(avalanchejs_1.Buffer.from(checkHash.hash));
     if (checkHashString !== pass_hash) {
         throw 'INVALID_PASS';
     }
@@ -88,7 +88,7 @@ async function readV4(data, pass) {
         let key = common_1.bintools.cb58Decode(key_data.key);
         let nonce = common_1.bintools.cb58Decode(key_data.iv);
         let key_decrypt = await cryptoHelpers.decrypt(pass, key, salt, nonce);
-        let key_string = common_1.bintools.cb58Encode(avalanche_1.Buffer.from(key_decrypt));
+        let key_string = common_1.bintools.cb58Encode(avalanchejs_1.Buffer.from(key_decrypt));
         keysDecrypt.push({
             key: key_string,
         });
@@ -107,7 +107,7 @@ async function readV5(data, pass) {
     let pass_hash = data.pass_hash;
     let checkHashString;
     let checkHash = await cryptoHelpers.pwhash(pass, salt);
-    checkHashString = common_1.bintools.cb58Encode(avalanche_1.Buffer.from(checkHash.hash));
+    checkHashString = common_1.bintools.cb58Encode(avalanchejs_1.Buffer.from(checkHash.hash));
     if (checkHashString !== pass_hash) {
         throw 'INVALID_PASS';
     }

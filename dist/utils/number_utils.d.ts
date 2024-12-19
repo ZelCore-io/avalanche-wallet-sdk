@@ -1,5 +1,5 @@
 /// <reference types="bn.js" />
-import { BN } from 'avalanche';
+import { BN } from '@avalabs/avalanchejs';
 import Big from 'big.js';
 declare module 'big.js' {
     interface Big {

@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.SingletonWallet = void 0;
 const Wallet_1 = require("../Wallet/Wallet");
 const network_1 = require("../Network/network");
-const avalanche_1 = require("avalanche");
+const avalanchejs_1 = require("@avalabs/avalanchejs");
 const EvmWallet_1 = require("../Wallet/EVM/EvmWallet");
 const common_1 = require("../common");
 class SingletonWallet extends Wallet_1.WalletProvider {
@@ -29,7 +29,7 @@ class SingletonWallet extends Wallet_1.WalletProvider {
         return new SingletonWallet(key);
     }
     static fromEvmKey(key) {
-        let keyBuff = common_1.bintools.cb58Encode(avalanche_1.Buffer.from(key, 'hex'));
+        let keyBuff = common_1.bintools.cb58Encode(avalanchejs_1.Buffer.from(key, 'hex'));
         let avmKeyStr = `PrivateKey-${keyBuff}`;
         return new SingletonWallet(avmKeyStr);
     }

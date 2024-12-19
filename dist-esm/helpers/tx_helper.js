@@ -1,8 +1,8 @@
 import { cChain, ethersProvider, pChain, web3, xChain } from '../Network/network';
-import { AVMConstants, MinterSet, } from 'avalanche/dist/apis/avm';
-import { OutputOwners } from 'avalanche/dist/common';
-import { PlatformVMConstants } from 'avalanche/dist/apis/platformvm';
-import { EVMConstants } from 'avalanche/dist/apis/evm';
+import { AVMConstants, MinterSet, } from '@avalabs/avalanchejs/dist/apis/avm';
+import { OutputOwners } from '@avalabs/avalanchejs/dist/common';
+import { PlatformVMConstants } from '@avalabs/avalanchejs/dist/apis/platformvm';
+import { EVMConstants } from '@avalabs/avalanchejs/dist/apis/evm';
 import { FeeMarketEIP1559Transaction, TransactionFactory } from '@ethereumjs/tx';
 import { Common as EthereumjsCommon } from '@ethereumjs/common';
 import ERC20Abi from '../Asset/ERC20.json';

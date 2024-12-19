@@ -1,5 +1,5 @@
 import { NetworkConfig } from '../Network/types';
-import { Avalanche } from 'avalanche';
+import { Avalanche } from '@avalabs/avalanchejs';
 import { HttpClient } from './http_client';
 export declare function wsUrlFromConfigX(config: NetworkConfig): string;
 export declare function wsUrlFromConfigEVM(config: NetworkConfig): string;

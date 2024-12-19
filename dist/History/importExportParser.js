@@ -7,7 +7,7 @@ const network_1 = require("../Network/network");
 const utils_1 = require("../utils");
 const utxoUtils_1 = require("../Explorer/ortelius/utxoUtils");
 const Explorer_1 = require("../Explorer");
-const avalanche_1 = require("avalanche");
+const avalanchejs_1 = require("@avalabs/avalanchejs");
 function getImportSummary(tx, addresses, evmAddr) {
     let sourceChain = (0, Explorer_1.findSourceChain)(tx);
     let chainAliasFrom = (0, aliasFromNetworkID_1.idToChainAlias)(sourceChain);
@@ -17,7 +17,7 @@ function getImportSummary(tx, addresses, evmAddr) {
     let myOuts = (0, utxoUtils_1.getOwnedOutputs)(outs, [...addresses, normalizedEVMAddr]);
     let amtOut = (0, utxoUtils_1.getOutputTotals)(myOuts);
     let time = new Date(tx.timestamp);
-    let fee = new avalanche_1.BN(tx.txFee);
+    let fee = new avalanchejs_1.BN(tx.txFee);
     let res = {
         id: tx.id,
         memo: (0, history_helpers_1.parseMemo)(tx.memo),

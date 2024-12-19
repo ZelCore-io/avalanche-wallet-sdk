@@ -1,8 +1,8 @@
 /// <reference types="bn.js" />
-import { BN } from 'avalanche';
-import { UnsignedTx as AVMUnsignedTx, UTXO as AVMUTXO, UTXOSet as AVMUTXOSet, UTXOSet } from 'avalanche/dist/apis/avm';
-import { PayloadBase } from 'avalanche/dist/utils';
-import { UTXOSet as PlatformUTXOSet } from 'avalanche/dist/apis/platformvm';
+import { BN } from '@avalabs/avalanchejs';
+import { UnsignedTx as AVMUnsignedTx, UTXO as AVMUTXO, UTXOSet as AVMUTXOSet, UTXOSet } from '@avalabs/avalanchejs/dist/apis/avm';
+import { PayloadBase } from '@avalabs/avalanchejs/dist/utils';
+import { UTXOSet as PlatformUTXOSet } from '@avalabs/avalanchejs/dist/apis/platformvm';
 import { FeeMarketEIP1559Transaction, TypedTransaction } from '@ethereumjs/tx';
 import { ExportChainsC, ExportChainsP, ExportChainsX } from '../Wallet/types';
 export declare function buildCreateNftFamilyTx(name: string, symbol: string, groupNum: number, fromAddrs: string[], minterAddr: string, changeAddr: string, utxoSet: UTXOSet): Promise<AVMUnsignedTx>;
@@ -10,7 +10,7 @@ export declare function buildMintNftTx(mintUtxo: AVMUTXO, payload: PayloadBase, 
 export declare function buildAvmExportTransaction(destinationChain: ExportChainsX, utxoSet: AVMUTXOSet, fromAddresses: string[], toAddress: string, amount: BN, // export amount + fee
 sourceChangeAddress: string): Promise<AVMUnsignedTx>;
 export declare function buildPlatformExportTransaction(utxoSet: PlatformUTXOSet, fromAddresses: string[], toAddress: string, amount: BN, // export amount + fee
-sourceChangeAddress: string, destinationChain: ExportChainsP): Promise<import("avalanche/dist/apis/platformvm").UnsignedTx>;
+sourceChangeAddress: string, destinationChain: ExportChainsP): Promise<import("@avalabs/avalanchejs/dist/apis/platformvm").UnsignedTx>;
 /**
  *
  * @param fromAddresses
@@ -21,7 +21,7 @@ sourceChangeAddress: string, destinationChain: ExportChainsP): Promise<import("a
  * @param fee Export fee in nAVAX
  */
 export declare function buildEvmExportTransaction(fromAddresses: string[], toAddress: string, amount: BN, // export amount + fee
-fromAddressBech: string, destinationChain: ExportChainsC, fee: BN): Promise<import("avalanche/dist/apis/evm").UnsignedTx>;
+fromAddressBech: string, destinationChain: ExportChainsC, fee: BN): Promise<import("@avalabs/avalanchejs/dist/apis/evm").UnsignedTx>;
 export declare function buildEvmTransferEIP1559Tx(from: string, to: string, amount: BN, // in wei
 priorityFee: BN, maxFee: BN, gasLimit: number): Promise<FeeMarketEIP1559Transaction>;
 export declare function buildEvmTransferNativeTx(from: string, to: string, amount: BN, // in wei

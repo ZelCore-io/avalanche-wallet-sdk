@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AVMWebSocketProvider = void 0;
 const tslib_1 = require("tslib");
 const sockette_1 = tslib_1.__importDefault(require("sockette"));
-const avalanche_1 = require("avalanche");
+const avalanchejs_1 = require("@avalabs/avalanchejs");
 const FILTER_ADDRESS_SIZE = 1000;
 class AVMWebSocketProvider {
     isConnected = false;
@@ -69,7 +69,7 @@ class AVMWebSocketProvider {
     }
     // Clears the filter listening to X chain transactions
     clearFilter() {
-        let pubsub = new avalanche_1.PubSub();
+        let pubsub = new avalanchejs_1.PubSub();
         let bloom = pubsub.newBloom(FILTER_ADDRESS_SIZE);
         this.socket.send(bloom);
     }
@@ -91,7 +91,7 @@ class AVMWebSocketProvider {
             let addAddrs = externalAddrs.slice(startIndex);
             addrs.push(...addAddrs);
         }
-        let pubsub = new avalanche_1.PubSub();
+        let pubsub = new avalanchejs_1.PubSub();
         let bloom = pubsub.newBloom(FILTER_ADDRESS_SIZE);
         this.socket.send(bloom);
         // Divide addresses by 100 and send multiple messages

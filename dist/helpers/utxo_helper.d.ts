@@ -1,8 +1,8 @@
-import { UTXOSet as AVMUTXOSet } from 'avalanche/dist/apis/avm/utxos';
-import { UTXOSet as PlatformUTXOSet } from 'avalanche/dist/apis/platformvm/utxos';
-import { UTXOSet as EVMUTXOSet } from 'avalanche/dist/apis/evm/utxos';
+import { UTXOSet as AVMUTXOSet } from '@avalabs/avalanchejs/dist/apis/avm/utxos';
+import { UTXOSet as PlatformUTXOSet } from '@avalabs/avalanchejs/dist/apis/platformvm/utxos';
+import { UTXOSet as EVMUTXOSet } from '@avalabs/avalanchejs/dist/apis/evm/utxos';
 import { ExportChainsC, ExportChainsP, ExportChainsX } from '../Wallet/types';
-import { GetStakeResponse } from 'avalanche/dist/apis/platformvm/interfaces';
+import { GetStakeResponse } from '@avalabs/avalanchejs/dist/apis/platformvm/interfaces';
 /**
  *
  * @param addrs an array of X chain addresses to get the atomic utxos of

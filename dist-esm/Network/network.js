@@ -1,4 +1,4 @@
-import { Avalanche } from 'avalanche/dist';
+import { Avalanche } from '@avalabs/avalanchejs/dist';
 import Web3 from 'web3';
 import { DefaultConfig } from './constants';
 import { getRpcC, getRpcP, getRpcX } from './helpers/rpcFromConfig';

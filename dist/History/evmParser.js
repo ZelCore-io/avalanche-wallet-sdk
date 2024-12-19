@@ -2,14 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTransactionSummaryEVM = void 0;
 const utils_1 = require("../utils");
-const avalanche_1 = require("avalanche");
+const avalanchejs_1 = require("@avalabs/avalanchejs");
 function getTransactionSummaryEVM(tx, walletAddress) {
     let isSender = tx.fromAddr.toUpperCase() === walletAddress.toUpperCase();
-    let amt = new avalanche_1.BN(tx.value);
+    let amt = new avalanchejs_1.BN(tx.value);
     let amtClean = (0, utils_1.bnToAvaxC)(amt);
     let date = new Date(tx.createdAt);
-    let gasLimit = new avalanche_1.BN(tx.gasLimit);
-    let gasPrice = new avalanche_1.BN(tx.gasPrice);
+    let gasLimit = new avalanchejs_1.BN(tx.gasLimit);
+    let gasPrice = new avalanchejs_1.BN(tx.gasPrice);
     let feeBN = gasLimit.mul(gasPrice); // in gwei
     return {
         id: tx.hash,

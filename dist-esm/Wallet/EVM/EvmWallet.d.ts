@@ -1,7 +1,7 @@
 /// <reference types="node" />
 /// <reference types="node" />
 import { TypedTransaction } from '@ethereumjs/tx';
-import { KeyChain as EVMKeyChain, KeyPair as EVMKeyPair, Tx as EVMTx, UnsignedTx as EVMUnsignedTx } from 'avalanche/dist/apis/evm';
+import { KeyChain as EVMKeyChain, KeyPair as EVMKeyPair, Tx as EVMTx, UnsignedTx as EVMUnsignedTx } from '@avalabs/avalanchejs/dist/apis/evm';
 import { EvmWalletReadonly } from '../../Wallet/EVM/EvmWalletReadonly';
 import { MessageTypes, SignTypedDataVersion, TypedDataV1, TypedMessage } from '@metamask/eth-sig-util';
 export declare class EvmWallet extends EvmWalletReadonly {
