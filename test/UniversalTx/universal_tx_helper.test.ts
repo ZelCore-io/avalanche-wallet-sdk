@@ -1,5 +1,5 @@
 import { createGraphForC, createGraphForP, createGraphForX, UniversalTx } from '../../src/UniversalTx';
-import { BN } from 'avalanche';
+import { BN } from '@avalabs/avalanchejs';
 import { pChain, xChain } from '../../src/Network/network';
 
 jest.mock('../../src/Network/network', () => {

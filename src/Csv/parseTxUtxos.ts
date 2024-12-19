@@ -4,7 +4,7 @@ import { activeNetwork, idToChainAlias } from '../Network';
 import { isOutputOwner } from '../Explorer/ortelius/utxoUtils';
 import { createCSVContent } from '../Csv/createCsvContent';
 import { bnToBig } from '../utils';
-import { BN } from 'avalanche';
+import { BN } from '@avalabs/avalanchejs';
 
 interface ParsedTxUtxos {
     txID: string;

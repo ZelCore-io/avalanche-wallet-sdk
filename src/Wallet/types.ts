@@ -1,6 +1,6 @@
-import { KeyPair as AVMKeyPair } from 'avalanche/dist/apis/avm';
+import { KeyPair as AVMKeyPair } from '@avalabs/avalanchejs/dist/apis/avm';
 
-import { BN } from 'avalanche';
+import { BN } from '@avalabs/avalanchejs';
 
 import { SingletonWallet } from '../Wallet/SingletonWallet';
 

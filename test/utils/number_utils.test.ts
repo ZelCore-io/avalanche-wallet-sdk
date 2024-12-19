@@ -1,5 +1,5 @@
 import * as Utils from '../../src/utils';
-import { BN } from 'avalanche';
+import { BN } from '@avalabs/avalanchejs';
 
 describe('stringToBN', () => {
     it('no decimals', () => {

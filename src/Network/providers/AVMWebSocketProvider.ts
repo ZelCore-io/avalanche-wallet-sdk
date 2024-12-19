@@ -1,5 +1,5 @@
 import Sockette from 'sockette';
-import { PubSub } from 'avalanche';
+import { PubSub } from '@avalabs/avalanchejs';
 import { WalletType } from '../../Wallet/types';
 
 const FILTER_ADDRESS_SIZE = 1000;

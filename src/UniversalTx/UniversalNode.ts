@@ -1,4 +1,4 @@
-import { BN } from 'avalanche';
+import { BN } from '@avalabs/avalanchejs';
 import { ChainIdType } from '../common';
 import {
     UniversalTx,

@@ -1,5 +1,5 @@
 import { OrteliusUTXO } from '../../Explorer';
-import { BN } from 'avalanche';
+import { BN } from '@avalabs/avalanchejs';
 import { iHistoryBaseTxTokenOwners } from '../../History';
 import { strip0x } from '../../utils';
 

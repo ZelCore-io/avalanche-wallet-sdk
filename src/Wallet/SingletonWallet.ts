@@ -1,16 +1,16 @@
 import { WalletProvider } from '../Wallet/Wallet';
 import { UnsafeWallet, WalletNameType } from '../Wallet/types';
 
-import { KeyChain as AVMKeyChain, UnsignedTx as AVMUnsignedTx, Tx as AVMTx } from 'avalanche/dist/apis/avm';
+import { KeyChain as AVMKeyChain, UnsignedTx as AVMUnsignedTx, Tx as AVMTx } from '@avalabs/avalanchejs/dist/apis/avm';
 import {
     KeyChain as PlatformKeyChain,
     UnsignedTx as PlatformUnsignedTx,
     Tx as PlatformTx,
-} from 'avalanche/dist/apis/platformvm';
+} from '@avalabs/avalanchejs/dist/apis/platformvm';
 import { pChain, xChain } from '../Network/network';
-import { Buffer as BufferAvalanche } from 'avalanche';
+import { Buffer as BufferAvalanche } from '@avalabs/avalanchejs';
 import { EvmWallet } from '../Wallet/EVM/EvmWallet';
-import { UnsignedTx, Tx } from 'avalanche/dist/apis/evm';
+import { UnsignedTx, Tx } from '@avalabs/avalanchejs/dist/apis/evm';
 import { TypedTransaction } from '@ethereumjs/tx';
 import { bintools } from '../common';
 import { TypedDataV1, TypedMessage } from '@metamask/eth-sig-util';
