@@ -1,6 +1,6 @@
 import { Buffer } from 'buffer/';
 import createHash from 'create-hash';
-
+import crypto from 'node:crypto';
 /**
  * @ignore
  */

@@ -4,20 +4,20 @@ import {
     iHistoryBaseTx,
     iHistoryStaking,
     isHistoryImportExportTx,
-} from '@/History';
+} from '../../src/History';
 import { ImportTransaction, ImportTx1 } from './import_dumps';
 import { ExportTx, ExportTx1, ExportTx2, ExportTx3 } from './export_dumps';
 import { BaseTx, BaseTx1, BaseTx2, BaseTxSend0, BaseTxSend1, BaseTxSend2 } from './base_tx_dumps';
 import { StakeTx0, StakeTx1, StakeTx2, StakeTx3 } from './staking_dumps';
-import { OrteliusAvalancheTx } from '@/Explorer/ortelius/types';
+import { OrteliusAvalancheTx } from '../../src/Explorer/ortelius/types';
 
-jest.mock('@/Network/setNetwork', () => {
+jest.mock('../../src/Network/setNetwork', () => {
     return {
         setNetwork: jest.fn(),
     };
 });
 
-jest.mock('@/Network/utils', () => {
+jest.mock('../../src/Network/utils', () => {
     return {
         getAvaxAssetID: jest.fn().mockImplementation(() => {
             return 'U8iRqJoiJm8xZHAacmvYyZVwqQx6uDNtQeP3CQ6fcgQk3JqnK';
@@ -25,7 +25,7 @@ jest.mock('@/Network/utils', () => {
     };
 });
 
-jest.mock('@/Network/helpers/aliasFromNetworkID', () => {
+jest.mock('../../src/Network/helpers/aliasFromNetworkID', () => {
     return {
         idToChainAlias: jest.fn().mockImplementation((id: string) => {
             switch (id) {
@@ -41,7 +41,7 @@ jest.mock('@/Network/helpers/aliasFromNetworkID', () => {
     };
 });
 
-jest.mock('@/Asset/Assets', () => {
+jest.mock('../../src/Asset/Assets', () => {
     return {
         getAssetDescription: jest.fn().mockImplementation((id: string) => {
             switch (id) {

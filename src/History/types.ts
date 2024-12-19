@@ -1,7 +1,7 @@
-import { BN } from 'avalanche';
-import { ChainIdType } from '@/common';
-import { iAssetDescriptionClean } from '@/Asset/types';
-import { OrteliusAvalancheTx, OrteliusEvmTx } from '@/Explorer';
+import { BN } from '@avalabs/avalanchejs';
+import { ChainIdType } from '../common';
+import { iAssetDescriptionClean } from '../Asset/types';
+import { OrteliusAvalancheTx, OrteliusEvmTx } from '../Explorer';
 
 export type HistoryItemType = AVMHistoryItemType | PVMHistoryItemType | EVMHistoryITemType | iHistoryItem;
 

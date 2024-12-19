@@ -1,4 +1,4 @@
-import { EvmWalletReadonly } from '@/Wallet/EVM/EvmWalletReadonly';
+import { EvmWalletReadonly } from '../../src/Wallet/EVM/EvmWalletReadonly';
 import { TEST_COMPRESSED_PUB, TEST_PK } from './constants';
 
 describe('EVM Wallet Readonly', () => {

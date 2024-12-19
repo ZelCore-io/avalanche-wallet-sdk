@@ -1,7 +1,7 @@
-import { filterDuplicateOrtelius, getAddressHistory, getAddressHistoryEVM, OrteliusAvalancheTx } from '@/Explorer';
-import { getTransactionSummary } from '@/History/parsers';
-import { getTransactionSummaryEVM } from '@/History/evmParser';
-import { cChain, pChain, xChain } from '@/Network';
+import { filterDuplicateOrtelius, getAddressHistory, getAddressHistoryEVM, OrteliusAvalancheTx } from '../Explorer';
+import { getTransactionSummary } from '../History/parsers';
+import { getTransactionSummaryEVM } from '../History/evmParser';
+import { cChain, pChain, xChain } from '../Network';
 
 export async function getHistoryX(addrs: string[], limit = 0) {
     return await getAddressHistory(addrs, limit, xChain.getBlockchainID());

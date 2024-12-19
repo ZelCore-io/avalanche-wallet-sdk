@@ -1,14 +1,14 @@
-import { Buffer as BufferAvalanche } from 'avalanche';
-import { FeeMarketEIP1559Transaction, Transaction } from '@ethereumjs/tx';
-import { avalanche } from '@/Network/network';
+import { Buffer as BufferAvalanche } from '@avalabs/avalanchejs';
+import { TypedTransaction } from '@ethereumjs/tx';
+import { avalanche } from '../../Network/network';
 import {
     KeyChain as EVMKeyChain,
     KeyPair as EVMKeyPair,
     Tx as EVMTx,
     UnsignedTx as EVMUnsignedTx,
-} from 'avalanche/dist/apis/evm';
-import { EvmWalletReadonly } from '@/Wallet/EVM/EvmWalletReadonly';
-import { bintools } from '@/common';
+} from '@avalabs/avalanchejs/dist/apis/evm';
+import { EvmWalletReadonly } from '../../Wallet/EVM/EvmWalletReadonly';
+import { bintools } from '../../common';
 import { computePublicKey } from 'ethers/lib/utils';
 import {
     MessageTypes,
@@ -19,6 +19,7 @@ import {
     TypedMessage,
 } from '@metamask/eth-sig-util';
 import * as bitcoin from 'bitcoinjs-lib';
+
 export class EvmWallet extends EvmWalletReadonly {
     private privateKey: Buffer;
     private btcPair: bitcoin.ECPairInterface;
@@ -52,7 +53,7 @@ export class EvmWallet extends EvmWalletReadonly {
         return keychain.importKey(this.getPrivateKeyBech());
     }
 
-    signEVM(tx: Transaction | FeeMarketEIP1559Transaction) {
+    signEVM(tx: TypedTransaction) {
         return tx.sign(this.privateKey);
     }
 

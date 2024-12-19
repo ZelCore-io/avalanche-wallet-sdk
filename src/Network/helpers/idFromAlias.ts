@@ -1,5 +1,5 @@
-import { ChainIdType } from '@/common';
-import { cChain, pChain, xChain } from '@/Network/network';
+import { ChainIdType } from '../../common';
+import { cChain, pChain, xChain } from '../../Network/network';
 
 /**
  * Given a chain alias, returns the chain id.

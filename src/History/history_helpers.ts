@@ -1,15 +1,15 @@
-import { OrteliusUTXO } from '@/Explorer';
-import { iHistoryNftFamilyBalance } from '@/History/types';
-import { AVMConstants } from 'avalanche/dist/apis/avm';
-import { parseNftPayload } from '@/utils';
-import { isOutputOwner } from '@/Explorer/ortelius/utxoUtils';
+import { OrteliusUTXO } from '../Explorer';
+import { iHistoryNftFamilyBalance } from '../History/types';
+import { AVMConstants } from '@avalabs/avalanchejs/dist/apis/avm';
+import { parseNftPayload } from '../utils';
+import { isOutputOwner } from '../Explorer/ortelius/utxoUtils';
 
 /**
  * Parse the raw memo field to readable text.
  * @param raw
  */
 export function parseMemo(raw: string): string {
-    const memoText = new Buffer(raw, 'base64').toString('utf8');
+    const memoText = Buffer.from(raw, 'base64').toString('utf8');
 
     // Bug that sets memo to empty string (AAAAAA==) for some tx types
     if (!memoText.length || raw === 'AAAAAA==') return '';

@@ -1,5 +1,5 @@
-import { getRpcC, getRpcP, getRpcX } from '@/Network/helpers/rpcFromConfig';
-import { MainnetConfig } from '@/Network/constants';
+import { getRpcC, getRpcP, getRpcX } from '../../../src/Network/helpers/rpcFromConfig';
+import { MainnetConfig } from '../../../src/Network/constants';
 
 describe('RPC from Config helper methods', () => {
     it('rpc for C', () => {

@@ -1,8 +1,8 @@
-import { adjustValue, getBaseFee, getGasPrice, getMaxPriorityFee } from '@/helpers/gas_helper';
-import { cChain, setRpcNetwork, web3 } from '@/Network/network';
+import { adjustValue, getBaseFee, getGasPrice, getMaxPriorityFee } from '../../src/helpers/gas_helper';
+import { cChain, setRpcNetwork, web3 } from '../../src/Network/network';
 import BN from 'bn.js';
 
-jest.mock('@/Network/network', () => {
+jest.mock('../../src/Network/network', () => {
     return {
         cChain: {
             getBaseFee: jest.fn(),

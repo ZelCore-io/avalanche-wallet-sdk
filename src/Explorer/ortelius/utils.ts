@@ -1,6 +1,6 @@
-import { OrteliusAvalancheTx } from '@/Explorer';
-import { BN } from 'avalanche';
-import { getOutputTotals } from '@/Explorer/ortelius/utxoUtils';
+import { OrteliusAvalancheTx } from '../../Explorer';
+import { BN } from '@avalabs/avalanchejs';
+import { getOutputTotals } from '../../Explorer/ortelius/utxoUtils';
 
 /**
  * Given an array of transactions from the explorer, filter out duplicate transactions

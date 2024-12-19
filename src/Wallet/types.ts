@@ -1,12 +1,10 @@
-import { KeyPair as AVMKeyPair } from 'avalanche/dist/apis/avm';
+import { KeyPair as AVMKeyPair } from '@avalabs/avalanchejs/dist/apis/avm';
 
-import { BN } from 'avalanche';
+import { BN } from '@avalabs/avalanchejs';
 
-import { MnemonicWallet } from '@/Wallet/MnemonicWallet';
-import { SingletonWallet } from '@/Wallet/SingletonWallet';
-import { LedgerWallet } from '@/Wallet/Ledger';
+import { SingletonWallet } from '../Wallet/SingletonWallet';
 
-import { iAssetDescriptionClean } from '@/Asset/types';
+import { iAssetDescriptionClean } from '../Asset/types';
 
 export interface IIndexKeyCache {
     [index: number]: AVMKeyPair;
@@ -19,8 +17,8 @@ export type ExportChainsC = 'X' | 'P';
 
 export type HdChainType = 'X' | 'P';
 
-export type WalletNameType = 'mnemonic' | 'ledger' | 'singleton' | 'xpub';
-export type WalletType = MnemonicWallet | SingletonWallet | LedgerWallet;
+export type WalletNameType = 'mnemonic' | 'singleton' | 'xpub';
+export type WalletType = SingletonWallet;
 
 export interface WalletBalanceX {
     [assetId: string]: AssetBalanceX;

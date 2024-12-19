@@ -1,8 +1,8 @@
-import { HistoryItemType, iHistoryStaking, isHistoryStakingTx } from '@/History';
-import { bnToBigAvaxP } from '@/utils';
+import { HistoryItemType, iHistoryStaking, isHistoryStakingTx } from '../History';
+import { bnToBigAvaxP } from '../utils';
 import moment from 'moment';
-import { createCSVContent } from '@/Csv/createCsvContent';
-import { stakingHeaders } from '@/Csv/constants';
+import { createCSVContent } from '../Csv/createCsvContent';
+import { stakingHeaders } from '../Csv/constants';
 import Big from 'big.js';
 
 /**

@@ -1,18 +1,18 @@
-import { WalletProvider } from '@/Wallet/Wallet';
-import { UnsafeWallet, WalletNameType } from '@/Wallet/types';
+import { WalletProvider } from '../Wallet/Wallet';
+import { UnsafeWallet, WalletNameType } from '../Wallet/types';
 
-import { KeyChain as AVMKeyChain, UnsignedTx as AVMUnsignedTx, Tx as AVMTx } from 'avalanche/dist/apis/avm';
+import { KeyChain as AVMKeyChain, UnsignedTx as AVMUnsignedTx, Tx as AVMTx } from '@avalabs/avalanchejs/dist/apis/avm';
 import {
     KeyChain as PlatformKeyChain,
     UnsignedTx as PlatformUnsignedTx,
     Tx as PlatformTx,
-} from 'avalanche/dist/apis/platformvm';
-import { pChain, xChain } from '@/Network/network';
-import { Buffer as BufferAvalanche } from 'avalanche';
-import { EvmWallet } from '@/Wallet/EVM/EvmWallet';
-import { UnsignedTx, Tx } from 'avalanche/dist/apis/evm';
-import { FeeMarketEIP1559Transaction, Transaction } from '@ethereumjs/tx';
-import { bintools } from '@/common';
+} from '@avalabs/avalanchejs/dist/apis/platformvm';
+import { pChain, xChain } from '../Network/network';
+import { Buffer as BufferAvalanche } from '@avalabs/avalanchejs';
+import { EvmWallet } from '../Wallet/EVM/EvmWallet';
+import { UnsignedTx, Tx } from '@avalabs/avalanchejs/dist/apis/evm';
+import { TypedTransaction } from '@ethereumjs/tx';
+import { bintools } from '../common';
 import { TypedDataV1, TypedMessage } from '@metamask/eth-sig-util';
 
 export class SingletonWallet extends WalletProvider implements UnsafeWallet {
@@ -127,7 +127,7 @@ export class SingletonWallet extends WalletProvider implements UnsafeWallet {
         return this.evmWallet.signC(tx);
     }
 
-    async signEvm(tx: Transaction | FeeMarketEIP1559Transaction): Promise<Transaction | FeeMarketEIP1559Transaction> {
+    async signEvm(tx: TypedTransaction): Promise<TypedTransaction> {
         return this.evmWallet.signEVM(tx);
     }
 

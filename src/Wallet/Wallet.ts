@@ -26,11 +26,11 @@ import {
     buildPlatformExportTransaction,
     estimateAvaxGas,
     estimateErc20Gas,
-} from '@/helpers/tx_helper';
-import { BN, Buffer } from 'avalanche';
-import { FeeMarketEIP1559Transaction, Transaction } from '@ethereumjs/tx';
-import { activeNetwork, avalanche, cChain, pChain, web3, xChain } from '@/Network/network';
-import { EvmWallet } from '@/Wallet/EVM/EvmWallet';
+} from '../helpers/tx_helper';
+import { BN, Buffer } from '@avalabs/avalanchejs';
+import { TypedTransaction } from '@ethereumjs/tx';
+import { activeNetwork, avalanche, cChain, pChain, web3, xChain } from '../Network/network';
+import { EvmWallet } from '../Wallet/EVM/EvmWallet';
 
 import {
     avmGetAllUTXOs,
@@ -39,7 +39,7 @@ import {
     getStakeForAddresses,
     platformGetAllUTXOs,
     platformGetAtomicUTXOs,
-} from '@/helpers/utxo_helper';
+} from '../helpers/utxo_helper';
 
 import {
     UTXOSet as AVMUTXOSet,
@@ -48,7 +48,7 @@ import {
     Tx as AvmTx,
     AVMConstants,
     AmountOutput,
-} from 'avalanche/dist/apis/avm';
+} from '@avalabs/avalanchejs/dist/apis/avm';
 import {
     UTXOSet as PlatformUTXOSet,
     UTXO as PlatformUTXO,
@@ -56,24 +56,24 @@ import {
     Tx as PlatformTx,
     PlatformVMConstants,
     StakeableLockOut,
-} from 'avalanche/dist/apis/platformvm';
-import { UnsignedTx as EVMUnsignedTx, Tx as EVMTx, UTXOSet as EVMUTXOSet } from 'avalanche/dist/apis/evm';
+} from '@avalabs/avalanchejs/dist/apis/platformvm';
+import { UnsignedTx as EVMUnsignedTx, Tx as EVMTx, UTXOSet as EVMUTXOSet } from '@avalabs/avalanchejs/dist/apis/evm';
 
-import { PayloadBase, UnixNow } from 'avalanche/dist/utils';
-import { getAssetDescription } from '@/Asset/Assets';
-import { getErc20Token } from '@/Asset/Erc20';
-import { NO_NETWORK } from '@/errors';
-import { avaxCtoX, bnToLocaleString, getTxFeeP, getTxFeeX, waitTxC, waitTxEvm, waitTxP, waitTxX } from '@/utils';
-import { EvmWalletReadonly } from '@/Wallet/EVM/EvmWalletReadonly';
+import { PayloadBase, UnixNow } from '@avalabs/avalanchejs/dist/utils';
+import { getAssetDescription } from '../Asset/Assets';
+import { getErc20Token } from '../Asset/Erc20';
+import { NO_NETWORK } from '../errors';
+import { avaxCtoX, bnToLocaleString, getTxFeeP, getTxFeeX, waitTxC, waitTxEvm, waitTxP, waitTxX } from '../utils';
+import { EvmWalletReadonly } from '../Wallet/EVM/EvmWalletReadonly';
 import EventEmitter from 'events';
 import {
     getHistoryForOwnedAddressesRaw,
     getTransactionSummary,
     getTransactionSummaryEVM,
     HistoryItemType,
-} from '@/History';
-import { bintools } from '@/common';
-import { ChainIdType } from '@/common';
+} from '../History';
+import { bintools } from '../common';
+import { ChainIdType } from '../common';
 import {
     createGraphForC,
     createGraphForP,
@@ -82,19 +82,19 @@ import {
     getStepsForBalanceP,
     getStepsForBalanceX,
     UniversalTx,
-} from '@/UniversalTx';
-import { UniversalNodeAbstract } from '@/UniversalTx/UniversalNode';
-import { GetStakeResponse } from 'avalanche/dist/apis/platformvm/interfaces';
-import { networkEvents } from '@/Network/eventEmitter';
-import { NetworkConfig } from '@/Network';
-import { chainIdFromAlias } from '@/Network/helpers/idFromAlias';
+} from '../UniversalTx';
+import { UniversalNodeAbstract } from '../UniversalTx/UniversalNode';
+import { GetStakeResponse } from '@avalabs/avalanchejs/dist/apis/platformvm/interfaces';
+import { networkEvents } from '../Network/eventEmitter';
+import { NetworkConfig } from '../Network';
+import { chainIdFromAlias } from '../Network/helpers/idFromAlias';
 import {
     estimateExportGasFee,
     estimateExportGasFeeFromMockTx,
     estimateImportGasFeeFromMockTx,
     getBaseFeeRecommended,
-} from '@/helpers/gas_helper';
-import { getErc20History, getNormalHistory } from '@/Explorer/snowtrace';
+} from '../helpers/gas_helper';
+import { getErc20History, getNormalHistory } from '../Explorer/snowtrace';
 import {
     filterDuplicateOrtelius,
     getAddressHistory,
@@ -102,9 +102,9 @@ import {
     getTx,
     getTxEvm,
     OrteliusAvalancheTx,
-} from '@/Explorer';
+} from '../Explorer';
 import { TypedDataV1, TypedMessage } from '@metamask/eth-sig-util';
-import { getHistoryForOwnedAddresses } from '@/History/getHistoryForOwnedAddresses';
+import { getHistoryForOwnedAddresses } from '../History/getHistoryForOwnedAddresses';
 
 export abstract class WalletProvider {
     abstract type: WalletNameType;
@@ -122,7 +122,7 @@ export abstract class WalletProvider {
 
     public balanceX: WalletBalanceX = {};
 
-    abstract signEvm(tx: Transaction | FeeMarketEIP1559Transaction): Promise<Transaction | FeeMarketEIP1559Transaction>;
+    abstract signEvm(tx: TypedTransaction): Promise<TypedTransaction>;
     abstract signX(tx: AVMUnsignedTx): Promise<AvmTx>;
     abstract signP(tx: PlatformUnsignedTx): Promise<PlatformTx>;
     abstract signC(tx: EVMUnsignedTx): Promise<EVMTx>;
@@ -156,7 +156,7 @@ export abstract class WalletProvider {
      * Call after getting done with the wallet to avoi memory leaks and remove event listeners
      */
     public destroy() {
-        networkEvents.off('network_change', this.onNetworkChange);
+        networkEvents.removeAllListeners('network_change');
     }
 
     /**
@@ -348,7 +348,8 @@ export abstract class WalletProvider {
      */
     async estimateErc20Gas(contractAddress: string, to: string, amount: BN): Promise<number> {
         let from = this.getAddressC();
-        return await estimateErc20Gas(contractAddress, from, to, amount);
+        const gas = await estimateErc20Gas(contractAddress, from, to, amount);
+        return Number(gas.toString());
     }
 
     /**
@@ -466,11 +467,11 @@ export abstract class WalletProvider {
      * Given a `Transaction`, it will sign and issue it to the network.
      * @param tx The unsigned transaction to issue.
      */
-    async issueEvmTx(tx: Transaction | FeeMarketEIP1559Transaction): Promise<string> {
+    async issueEvmTx(tx: TypedTransaction): Promise<string> {
         let signedTx = await this.signEvm(tx);
-        let txHex = signedTx.serialize().toString('hex');
+        let txHex = Buffer.from(signedTx.serialize()).toString('hex');
         let hash = await web3.eth.sendSignedTransaction('0x' + txHex);
-        const txHash = hash.transactionHash;
+        const txHash = web3.utils.bytesToHex(hash.transactionHash);
         return await waitTxEvm(txHash);
     }
 

@@ -1,10 +1,10 @@
-import { findDestinationChain, findSourceChain, OrteliusAvalancheTx, OrteliusTransactionType } from '@/Explorer';
-import { ChainIdType } from '@/common';
-import { activeNetwork, idToChainAlias } from '@/Network';
-import { isOutputOwner } from '@/Explorer/ortelius/utxoUtils';
-import { createCSVContent } from '@/Csv/createCsvContent';
-import { bnToBig } from '@/utils';
-import { BN } from 'avalanche';
+import { findDestinationChain, findSourceChain, OrteliusAvalancheTx, OrteliusTransactionType } from '../Explorer';
+import { ChainIdType } from '../common';
+import { activeNetwork, idToChainAlias } from '../Network';
+import { isOutputOwner } from '../Explorer/ortelius/utxoUtils';
+import { createCSVContent } from '../Csv/createCsvContent';
+import { bnToBig } from '../utils';
+import { BN } from '@avalabs/avalanchejs';
 
 interface ParsedTxUtxos {
     txID: string;

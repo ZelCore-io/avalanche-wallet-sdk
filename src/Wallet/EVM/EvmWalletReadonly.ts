@@ -1,12 +1,12 @@
-import { BN, Buffer as BufferAvalanche } from 'avalanche';
-import { avalanche, web3 } from '@/Network/network';
+import { BN, Buffer as BufferAvalanche } from '@avalabs/avalanchejs';
+import { avalanche, web3 } from '../../Network/network';
 import { ethers } from 'ethers';
-import { KeyPair as EVMKeyPair } from 'avalanche/dist/apis/evm/keychain';
-import { bintools } from '@/common';
+import { KeyPair as EVMKeyPair } from '@avalabs/avalanchejs/dist/apis/evm/keychain';
+import { bintools } from '../../common';
 import { computePublicKey, computeAddress } from 'ethers/lib/utils';
-import { payments, ECPair, networks } from 'bitcoinjs-lib';
-import { BTCNetworkType } from '@/Wallet';
-import { buildEvmTransferErc721Tx, estimateErc721TransferGas } from '@/helpers/tx_helper';
+import { payments, networks, ECPair } from 'bitcoinjs-lib';
+import { BTCNetworkType } from '../../Wallet';
+import { buildEvmTransferErc721Tx, estimateErc721TransferGas } from '../../helpers/tx_helper';
 
 export class EvmWalletReadonly {
     balance = new BN(0);
@@ -65,7 +65,7 @@ export class EvmWalletReadonly {
 
     async updateBalance() {
         let bal = await web3.eth.getBalance(this.address);
-        this.balance = new BN(bal);
+        this.balance = new BN(bal.toString());
         return this.balance;
     }
 

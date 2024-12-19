@@ -1,4 +1,4 @@
-import { NetworkConfig } from '@/Network/types';
+import { NetworkConfig } from '../Network/types';
 import EventEmitter from 'events';
 
 /**

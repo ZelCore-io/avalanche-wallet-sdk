@@ -1,6 +1,6 @@
-import { cChain, ethersProvider, pChain, web3, xChain } from '@/Network/network';
+import { cChain, ethersProvider, pChain, web3, xChain } from '../Network/network';
 
-import { BN, Buffer } from 'avalanche';
+import { BN, Buffer } from '@avalabs/avalanchejs';
 import {
     AVMConstants,
     MinterSet,
@@ -9,23 +9,23 @@ import {
     UTXO as AVMUTXO,
     UTXOSet as AVMUTXOSet,
     UTXOSet,
-} from 'avalanche/dist/apis/avm';
+} from '@avalabs/avalanchejs/dist/apis/avm';
 
-import { PayloadBase } from 'avalanche/dist/utils';
-import { OutputOwners } from 'avalanche/dist/common';
-import { PlatformVMConstants, UTXOSet as PlatformUTXOSet } from 'avalanche/dist/apis/platformvm';
+import { PayloadBase } from '@avalabs/avalanchejs/dist/utils';
+import { OutputOwners } from '@avalabs/avalanchejs/dist/common';
+import { PlatformVMConstants, UTXOSet as PlatformUTXOSet } from '@avalabs/avalanchejs/dist/apis/platformvm';
 
-import { EVMConstants } from 'avalanche/dist/apis/evm';
+import { EVMConstants } from '@avalabs/avalanchejs/dist/apis/evm';
 
-import { FeeMarketEIP1559Transaction, Transaction } from '@ethereumjs/tx';
-import EthereumjsCommon from '@ethereumjs/common';
+import { FeeMarketEIP1559Transaction, Transaction, TransactionFactory, TypedTransaction } from '@ethereumjs/tx';
+import { Common as EthereumjsCommon } from '@ethereumjs/common';
 
-import ERC20Abi from '@openzeppelin/contracts/build/contracts/ERC20.json';
-import ERC721Abi from '@openzeppelin/contracts/build/contracts/ERC721.json';
-import { bintools } from '@/common';
-import { ExportChainsC, ExportChainsP, ExportChainsX } from '@/Wallet/types';
-import { chainIdFromAlias } from '@/Network/helpers/idFromAlias';
-import { getErc721TokenEthers } from '@/Asset';
+import ERC20Abi from '../Asset/ERC20.json';
+import ERC721Abi from '../Asset/ERC721/ERC721.json';
+import { bintools } from '../common';
+import { ExportChainsC, ExportChainsP, ExportChainsX } from '../Wallet/types';
+import { chainIdFromAlias } from '../Network/helpers/idFromAlias';
+import { getErc721TokenEthers } from '../Asset';
 
 export async function buildCreateNftFamilyTx(
     name: string,
@@ -154,7 +154,7 @@ export async function buildEvmExportTransaction(
         fromAddressHex,
         fromAddressBech,
         [toAddress],
-        nonce,
+        Number(nonce.toString()),
         undefined,
         undefined,
         fee
@@ -178,11 +178,11 @@ export async function buildEvmTransferEIP1559Tx(
     const tx = FeeMarketEIP1559Transaction.fromTxData(
         {
             nonce: nonce,
-            maxFeePerGas: '0x' + maxFee.toString('hex'),
-            maxPriorityFeePerGas: '0x' + priorityFee.toString('hex'),
+            maxFeePerGas: `0x${maxFee.toString('hex')}`,
+            maxPriorityFeePerGas: `0x${priorityFee.toString('hex')}`,
             gasLimit: gasLimit,
-            to: to,
-            value: '0x' + amount.toString('hex'),
+            to: `0x${to.replace('0x', '')}`,
+            value: `0x${amount.toString('hex')}`,
             data: '0x',
         },
         { common }
@@ -203,13 +203,13 @@ export async function buildEvmTransferNativeTx(
 
     const common = EthereumjsCommon.custom({ networkId, chainId });
 
-    const tx = Transaction.fromTxData(
+    const tx = TransactionFactory.fromTxData(
         {
             nonce: nonce,
-            gasPrice: '0x' + gasPrice.toString('hex'),
+            gasPrice: `0x${gasPrice.toString('hex')}`,
             gasLimit: gasLimit,
-            to: to,
-            value: '0x' + amount.toString('hex'),
+            to: `0x${to.replace('0x', '')}`,
+            value: `0x${amount.toString('hex')}`,
             data: '0x',
         },
         { common }
@@ -225,28 +225,32 @@ export async function buildCustomEvmTx(
     to?: string,
     value?: string,
     nonce?: number
-): Promise<Transaction> {
+): Promise<TypedTransaction> {
     if (typeof nonce === 'undefined') {
-        nonce = await web3.eth.getTransactionCount(from);
+        const _nonce = await web3.eth.getTransactionCount(from);
+        nonce = Number(_nonce.toString());
     }
 
     const chainId = await web3.eth.getChainId();
     const networkId = await web3.eth.net.getId();
 
     const chainParams = {
-        common: EthereumjsCommon.forCustomChain('mainnet', { networkId, chainId }, 'istanbul'),
+        common: EthereumjsCommon.custom({
+            name: 'mainnet',
+            networkId,
+            chainId,
+            defaultHardfork: 'istanbul',
+        }),
     };
 
-    let gasPriceHex = `0x${gasPrice.toString('hex')}`;
-
-    let tx = Transaction.fromTxData(
+    let tx = TransactionFactory.fromTxData(
         {
             nonce,
-            gasPrice: gasPriceHex,
+            gasPrice: `0x${gasPrice.toString('hex')}`,
             gasLimit,
-            value,
-            to,
-            data,
+            value: `0x${value?.replace('0x', '') || ''}`,
+            to: to ? `0x${to?.replace('0x', '')}` : undefined,
+            data: data ? `0x${data.replace('0x', '')}` : undefined,
         },
         chainParams
     );
@@ -284,20 +288,25 @@ export async function buildEvmTransferErc721Tx(
     const chainId = await web3.eth.getChainId();
     const networkId = await web3.eth.net.getId();
     const chainParams = {
-        common: EthereumjsCommon.forCustomChain('mainnet', { networkId, chainId }, 'istanbul'),
+        common: EthereumjsCommon.custom({
+            name: 'mainnet',
+            networkId,
+            chainId,
+            defaultHardfork: 'istanbul',
+        }),
     };
     // @ts-ignore
     const contract = new web3.eth.Contract(ERC721Abi.abi, tokenContract);
     const tokenTx = contract.methods['safeTransferFrom(address,address,uint256)'](from, to, tokenId);
 
-    let tx = Transaction.fromTxData(
+    let tx = TransactionFactory.fromTxData(
         {
             nonce: nonce,
-            gasPrice: '0x' + gasPrice.toString('hex'),
+            gasPrice: `0x${gasPrice.toString('hex')}`,
             gasLimit: gasLimit,
             value: '0x0',
-            to: tokenContract,
-            data: tokenTx.encodeABI(),
+            to: `0x${tokenContract.replace('0x', '')}`,
+            data: `0x${tokenTx.encodeABI().replace('0x', '')}`,
         },
         chainParams
     );
@@ -335,12 +344,13 @@ export async function estimateErc721TransferGas(contract: string, from: string, 
  */
 export async function estimateAvaxGas(from: string, to: string, amount: BN, gasPrice: BN): Promise<number> {
     try {
-        return await web3.eth.estimateGas({
+        const gas = await web3.eth.estimateGas({
             from,
             to,
             gasPrice: `0x${gasPrice.toString('hex')}`,
             value: `0x${amount.toString('hex')}`,
         });
+        return Number(gas.toString());
     } catch (e) {
         // TODO: Throws an error if we do not have enough avax balance
         //TODO: Is it ok to return 21000

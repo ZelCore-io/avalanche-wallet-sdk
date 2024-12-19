@@ -1,24 +1,24 @@
-import { Avalanche } from 'avalanche/dist';
-import { AVMAPI } from 'avalanche/dist/apis/avm';
-import { InfoAPI } from 'avalanche/dist/apis/info';
-import { EVMAPI } from 'avalanche/dist/apis/evm';
+import { Avalanche } from '@avalabs/avalanchejs/dist';
+import { AVMAPI } from '@avalabs/avalanchejs/dist/apis/avm';
+import { InfoAPI } from '@avalabs/avalanchejs/dist/apis/info';
+import { EVMAPI } from '@avalabs/avalanchejs/dist/apis/evm';
 import Web3 from 'web3';
 import { DefaultConfig } from './constants';
 import { NetworkConfig, NetworkConfigRpc, NetworkProtocolType } from './types';
 import { getRpcC, getRpcP, getRpcX } from './helpers/rpcFromConfig';
 import URL from 'url';
-import { bintools } from '@/common';
+import { bintools } from '../common';
 import {
     canUseCredentials,
     createAvalancheProvider,
     createExplorerApi,
     getNetworkIdFromURL,
-} from '@/helpers/network_helper';
+} from '../helpers/network_helper';
 
-import { FetchHttpProvider } from '@/utils/FetchHTTPProvider';
-import { getEthersJsonRpcProvider } from '@/Network/getEthersProvider';
+import { FetchHttpProvider } from '../utils/FetchHTTPProvider';
+import { getEthersJsonRpcProvider } from '../Network/getEthersProvider';
 import { ethers } from 'ethers';
-import { HttpClient } from '@/helpers/http_client';
+import { HttpClient } from '../helpers/http_client';
 
 export const avalanche: Avalanche = createAvalancheProvider(DefaultConfig);
 
@@ -148,7 +148,7 @@ export async function getConfigFromUrl(url: string): Promise<NetworkConfig> {
         pChainID: idP,
         cChainID: idC,
         avaxID: avaxId,
-        evmChainID: evmChainId,
+        evmChainID: Number(evmChainId.toString()),
         get rpcUrl(): NetworkConfigRpc {
             return {
                 c: getRpcC(this),

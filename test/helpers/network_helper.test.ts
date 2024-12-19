@@ -1,5 +1,5 @@
-import { wsUrlFromConfigEVM, wsUrlFromConfigX } from '@/helpers/network_helper';
-import { MainnetConfig } from '@/Network/constants';
+import { wsUrlFromConfigEVM, wsUrlFromConfigX } from '../../src/helpers/network_helper';
+import { MainnetConfig } from '../../src/Network/constants';
 
 describe('Network helper methods', () => {
     it('can return ws url for X chain', () => {

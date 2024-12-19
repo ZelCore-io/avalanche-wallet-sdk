@@ -1,5 +1,5 @@
 import { ethers } from 'ethers';
-import { WalletType } from '@/Wallet/types';
+import { WalletType } from '../../Wallet/types';
 
 const SOCKET_RECONNECT_TIMEOUT = 1000;
 

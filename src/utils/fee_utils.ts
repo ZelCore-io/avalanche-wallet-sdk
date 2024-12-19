@@ -1,5 +1,5 @@
-import { pChain, xChain } from '@/Network/network';
-import { BN } from 'avalanche';
+import { pChain, xChain } from '../Network/network';
+import { BN } from '@avalabs/avalanchejs';
 
 /**
  * Returns the transaction fee for X chain.

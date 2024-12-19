@@ -5,8 +5,8 @@ import {
     ChainStatusTypeC,
     PlatformStatusResponseType,
     PlatformStatusType,
-} from '@/utils/types';
-import { cChain, pChain, web3, xChain } from '@/Network/network';
+} from '../utils/types';
+import { cChain, pChain, web3, xChain } from '../Network/network';
 
 /**
  * Waits until the given tx id is accepted on X chain

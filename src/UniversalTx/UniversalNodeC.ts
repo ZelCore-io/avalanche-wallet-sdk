@@ -1,12 +1,12 @@
-import { UniversalNodeAbstract } from '@/UniversalTx/UniversalNode';
-import { ExportChainsC } from '@/Wallet/types';
+import { UniversalNodeAbstract } from '../UniversalTx/UniversalNode';
+import { ExportChainsC } from '../Wallet/types';
 import {
     UniversalTxActionExportC,
     UniversalTxActionImportC,
     UniversalTxExportC,
     UniversalTxImportC,
-} from '@/UniversalTx/types';
-import { BN } from 'avalanche';
+} from '../UniversalTx/types';
+import { BN } from '@avalabs/avalanchejs';
 
 export default class UniversalNodeC extends UniversalNodeAbstract {
     constructor(balance: BN, feeExport: BN, feeImport: BN) {

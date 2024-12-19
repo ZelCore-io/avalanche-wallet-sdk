@@ -1,0 +1,8 @@
+import { NetworkConfig } from '../Network/types';
+export declare function setNetwork(conf: NetworkConfig): void;
+/**
+ * Unlike `setNetwork` this function will fail if the network is not available.
+ * @param conf
+ */
+export declare function setNetworkAsync(conf: NetworkConfig): Promise<void>;
+//# sourceMappingURL=setNetwork.d.ts.map

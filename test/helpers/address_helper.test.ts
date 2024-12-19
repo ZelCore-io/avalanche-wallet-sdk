@@ -6,7 +6,7 @@ import {
     validateAddressEVM,
     validateAddressP,
     validateAddressX,
-} from '@/helpers/address_helper';
+} from '../../src/helpers/address_helper';
 
 import Web3 from 'web3';
 const addrEVM = '0x6a23c16777a3A194b2773df90FEB8753A8e619Ee';
@@ -21,7 +21,7 @@ jest.mock('web3', () => {
         },
     };
 });
-jest.mock('@/Network/network', () => {
+jest.mock('../../src/Network/network', () => {
     return {
         avalanche: {
             getHRP: jest.fn(),

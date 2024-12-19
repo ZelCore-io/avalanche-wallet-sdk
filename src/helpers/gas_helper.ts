@@ -1,11 +1,11 @@
-import { activeNetwork, cChain, web3 } from '@/Network/network';
-import { BN } from 'avalanche';
-import { EVMInput, ExportTx, SECPTransferOutput, TransferableOutput, UnsignedTx } from 'avalanche/dist/apis/evm';
-import { ExportChainsC } from '@/Wallet/types';
-import { bintools } from '@/common';
-import { chainIdFromAlias } from '@/Network';
-import { costExportTx, costImportTx } from 'avalanche/dist/utils';
-import { buildEvmExportTransaction } from '@/helpers/tx_helper';
+import { activeNetwork, cChain, web3 } from '../Network/network';
+import { BN } from '@avalabs/avalanchejs';
+import { EVMInput, ExportTx, SECPTransferOutput, TransferableOutput, UnsignedTx } from '@avalabs/avalanchejs/dist/apis/evm';
+import { ExportChainsC } from '../Wallet/types';
+import { bintools } from '../common';
+import { chainIdFromAlias } from '../Network';
+import { costExportTx, costImportTx } from '@avalabs/avalanchejs/dist/utils';
+import { buildEvmExportTransaction } from '../helpers/tx_helper';
 
 const MAX_GAS = new BN(1000_000_000_000);
 
@@ -13,7 +13,8 @@ const MAX_GAS = new BN(1000_000_000_000);
  * Returns the current gas price in WEI from the network
  */
 export async function getGasPrice(): Promise<BN> {
-    return new BN(await web3.eth.getGasPrice());
+    const gas = await web3.eth.getGasPrice();
+    return new BN(gas.toString());
 }
 
 /**

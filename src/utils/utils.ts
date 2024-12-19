@@ -1,7 +1,7 @@
-import { Buffer as BufferAvalanche } from 'avalanche';
-import { validateAddress } from '@/helpers/address_helper';
+import { Buffer as BufferAvalanche } from '@avalabs/avalanchejs';
+import { validateAddress } from '../helpers/address_helper';
 import createHash from 'create-hash';
-import { PayloadBase, PayloadTypes } from 'avalanche/dist/utils';
+import { PayloadBase, PayloadTypes } from '@avalabs/avalanchejs/dist/utils';
 
 /**
  * Checks if address is valid.

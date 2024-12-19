@@ -1,6 +1,6 @@
-import { abi } from '@openzeppelin/contracts/build/contracts/ERC721.json';
+import { abi } from './ERC721.json';
 import { ContractFactory } from 'ethers';
-// import { web3 } from '@/Network';
+// import { web3 } from '../Network';
 // import { AbiItem } from 'web3-utils';
 /**
  * Returns an ethers ERC721 Contract

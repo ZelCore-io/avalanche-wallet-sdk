@@ -1,4 +1,4 @@
-import { BinTools } from 'avalanche';
+import { BinTools } from '@avalabs/avalanchejs';
 
 export const bintools = BinTools.getInstance();
 
