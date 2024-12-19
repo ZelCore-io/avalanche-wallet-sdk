@@ -1,10 +1,11 @@
 {
-    "version": "0.20.0-alpha.16",
+    "version": "0.21.0",
     "license": "BSD-3",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
     "files": [
         "dist",
+        "dist-esm",
         "src"
     ],
     "exports": {
@@ -34,6 +35,9 @@
     },
     "name": "@runonflux/avalanche-wallet-sdk",
     "author": "Ava Labs",
+    "contributors": [
+        "Stultus Mundi"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/ZelCore-io/avalanche-wallet-sdk"
@@ -94,6 +98,6 @@
         "xss": "~1.0.11"
     },
     "peerDependencies": {
-        "avalanche": ">= 3.15.2"
+        "@avalabs/avalanchejs": ">= 3.17.0"
     }
 }
