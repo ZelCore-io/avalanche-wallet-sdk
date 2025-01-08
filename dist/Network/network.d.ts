@@ -11,7 +11,7 @@ export declare const xChain: AVMAPI;
 export declare const cChain: EVMAPI;
 export declare const pChain: import("@avalabs/avalanchejs/dist/apis/platformvm").PlatformVMAPI;
 export declare const infoApi: InfoAPI;
-export declare const web3: Web3<import("web3-eth").RegisteredSubscription>;
+export declare let web3: Web3<import("web3-eth").RegisteredSubscription>;
 export declare let ethersProvider: ethers.providers.JsonRpcProvider;
 export declare let explorer_api: HttpClient | null;
 export declare let activeNetwork: NetworkConfig;
