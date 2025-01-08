@@ -74,8 +74,8 @@ function setRpcNetwork(conf, credentials = true) {
     else {
         exports.explorer_api = null;
     }
-    let rpcUrl = (0, rpcFromConfig_1.getRpcC)(conf);
-    exports.web3.setProvider(getProviderFromUrl(rpcUrl, credentials));
+    const rpcUrl = (0, rpcFromConfig_1.getRpcC)(conf);
+    exports.web3 = new web3_1.default(getProviderFromUrl(rpcUrl, credentials));
     // Update ethers provider
     exports.ethersProvider = (0, getEthersProvider_1.getEthersJsonRpcProvider)(conf);
     exports.activeNetwork = conf;

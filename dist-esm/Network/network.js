@@ -19,7 +19,7 @@ function getProviderFromUrl(url, credentials = false) {
     });
 }
 const rpcUrl = getRpcC(DefaultConfig);
-export const web3 = new Web3(getProviderFromUrl(rpcUrl, true));
+export let web3 = new Web3(getProviderFromUrl(rpcUrl, true));
 // JSON RPC Ethers provider
 export let ethersProvider = getEthersJsonRpcProvider(DefaultConfig);
 export let explorer_api = null;
@@ -68,8 +68,8 @@ export function setRpcNetwork(conf, credentials = true) {
     else {
         explorer_api = null;
     }
-    let rpcUrl = getRpcC(conf);
-    web3.setProvider(getProviderFromUrl(rpcUrl, credentials));
+    const rpcUrl = getRpcC(conf);
+    web3 = new Web3(getProviderFromUrl(rpcUrl, credentials));
     // Update ethers provider
     ethersProvider = getEthersJsonRpcProvider(conf);
     activeNetwork = conf;
