@@ -35,7 +35,7 @@ function getProviderFromUrl(url: string, credentials = false) {
 }
 
 const rpcUrl = getRpcC(DefaultConfig);
-export const web3 = new Web3(getProviderFromUrl(rpcUrl, true) as any);
+export let web3 = new Web3(getProviderFromUrl(rpcUrl, true) as any);
 // JSON RPC Ethers provider
 export let ethersProvider: ethers.providers.JsonRpcProvider = getEthersJsonRpcProvider(DefaultConfig);
 export let explorer_api: HttpClient | null = null;
@@ -92,8 +92,8 @@ export function setRpcNetwork(conf: NetworkConfig, credentials = true): void {
         explorer_api = null;
     }
 
-    let rpcUrl = getRpcC(conf);
-    web3.setProvider(getProviderFromUrl(rpcUrl, credentials) as any);
+    const rpcUrl = getRpcC(conf);
+    web3 = new Web3(getProviderFromUrl(rpcUrl, credentials) as any);
     // Update ethers provider
     ethersProvider = getEthersJsonRpcProvider(conf);
 
