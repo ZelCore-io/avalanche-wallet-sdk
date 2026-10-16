@@ -7,6 +7,9 @@ on:
             - dev
     pull_request:
 
+permissions:
+    contents: read
+
 jobs:
     Test:
         runs-on: ${{ matrix.os }}
@@ -15,12 +18,15 @@ jobs:
                 os: [ubuntu-latest]
                 node-version: [24.x]
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v2
+            # Same pinned actions as publish.yml. No `cache: yarn`: setup-node@v2 used the
+            # retired cache service, which now fails the job with "Cache service responded with 400".
+            - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
               with:
-                  cache: yarn
+                  persist-credentials: false
+            - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+              with:
                   node-version: ${{ matrix.node-version }}
-            - run: yarn --frozen-lockfile --network-timeout 1000000
+            - run: yarn install --frozen-lockfile --ignore-scripts --network-timeout 1000000
             - run: yarn test --ci --coverage --maxWorkers=2
     Lint:
         runs-on: ubuntu-latest
@@ -29,10 +35,11 @@ jobs:
                 os: [ubuntu-latest]
                 node-version: [24.x]
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v2
+            - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
               with:
-                  cache: yarn
+                  persist-credentials: false
+            - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+              with:
                   node-version: ${{ matrix.node-version }}
-            - run: yarn --frozen-lockfile
+            - run: yarn install --frozen-lockfile --ignore-scripts
             - run: yarn lint
